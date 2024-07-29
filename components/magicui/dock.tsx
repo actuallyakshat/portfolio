@@ -11,8 +11,9 @@ export interface DockProps extends VariantProps<typeof dockVariants> {
   children: React.ReactNode;
 }
 
-const DEFAULT_MAGNIFICATION = 60;
-const DEFAULT_DISTANCE = 140;
+const DEFAULT_MAGNIFICATION = 80;
+const DEFAULT_DISTANCE = 100;
+const MIN_WIDTH = 60;
 
 const dockVariants = cva(
   "mx-auto w-max mt-8 h-[58px] p-2 flex items-end gap-2 rounded-2xl border dark:border-[#707070]",
@@ -89,7 +90,7 @@ const DockIcon = ({
   let widthSync = useTransform(
     distanceCalc,
     [-distance, 0, distance],
-    [40, magnification, 40],
+    [70, magnification, 60],
   );
 
   let width = useSpring(widthSync, {

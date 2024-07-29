@@ -11,7 +11,7 @@ const navItems = [
 export default function CentralNavigation() {
   const pathname = usePathname();
   return (
-    <nav className="flex w-full max-w-lg rounded-full border-2 bg-background text-center">
+    <nav className="flex w-full max-w-lg rounded-full border-2 bg-background text-center shadow-lg">
       {navItems.map((item) => (
         <Link
           key={item.name}

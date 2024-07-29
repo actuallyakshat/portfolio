@@ -83,6 +83,7 @@ const tools = [
     icon: "git.svg",
   },
 ];
+
 import {
   Tooltip,
   TooltipContent,
@@ -96,47 +97,52 @@ const secondRow = tools.slice(tools.length / 2);
 
 export default function TechStack() {
   return (
-    <div className="flex h-full flex-col items-center justify-center gap-3 py-3">
-      <Marquee pauseOnHover className="[--duration:20s]">
-        {firstRow.map((review) => (
-          <TooltipProvider key={review.tooltip}>
-            <Tooltip>
-              <TooltipTrigger>
-                <Image
-                  src={`/tech-icons/${review.icon}`}
-                  alt={review.tooltip}
-                  width={60}
-                  height={60}
-                  className="relative z-[1] h-[50px] w-[50px]"
-                />
-              </TooltipTrigger>
-              <TooltipContent side="right" className="bg-card">
-                <p>{review.tooltip}</p>
-              </TooltipContent>
-            </Tooltip>
-          </TooltipProvider>
-        ))}
-      </Marquee>
-      <Marquee reverse pauseOnHover className="[--duration:20s]">
-        {secondRow.map((review) => (
-          <TooltipProvider key={review.tooltip}>
-            <Tooltip>
-              <TooltipTrigger>
-                <Image
-                  src={`/tech-icons/${review.icon}`}
-                  alt={review.tooltip}
-                  width={60}
-                  height={60}
-                  className="h-[50px] w-[50px]"
-                />
-              </TooltipTrigger>
-              <TooltipContent className="absolute z-[101] bg-card">
-                <p>{review.tooltip}</p>
-              </TooltipContent>
-            </Tooltip>
-          </TooltipProvider>
-        ))}
-      </Marquee>
-    </div>
+    <>
+      {" "}
+      <div className="relative flex h-full flex-col items-center justify-center gap-3 py-3">
+        <Marquee reverse pauseOnHover className="[--duration:50s]">
+          {firstRow.map((review) => (
+            <TooltipProvider key={review.tooltip}>
+              <Tooltip>
+                <TooltipTrigger>
+                  <Image
+                    src={`/tech-icons/${review.icon}`}
+                    alt={review.tooltip}
+                    width={60}
+                    height={60}
+                    className="relative z-[1] h-[50px] w-[50px]"
+                  />
+                </TooltipTrigger>
+                <TooltipContent side="right" className="bg-card">
+                  <p>{review.tooltip}</p>
+                </TooltipContent>
+              </Tooltip>
+            </TooltipProvider>
+          ))}
+        </Marquee>
+        <Marquee reverse pauseOnHover className="[--duration:50s]">
+          {secondRow.map((review) => (
+            <TooltipProvider key={review.tooltip}>
+              <Tooltip>
+                <TooltipTrigger>
+                  <div>
+                    <Image
+                      src={`/tech-icons/${review.icon}`}
+                      alt={review.tooltip}
+                      width={60}
+                      height={60}
+                      className="h-[50px] w-[50px]"
+                    />
+                  </div>
+                </TooltipTrigger>
+                <TooltipContent className="absolute z-[101] bg-card">
+                  <p>{review.tooltip}</p>
+                </TooltipContent>
+              </Tooltip>
+            </TooltipProvider>
+          ))}
+        </Marquee>
+      </div>
+    </>
   );
 }

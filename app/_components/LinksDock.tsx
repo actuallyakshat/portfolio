@@ -42,7 +42,7 @@ export default function LinksDock() {
               alt={item.name}
               width={60}
               height={60}
-              className="aspect-square size-12 fill-white stroke-white object-cover"
+              className="aspect-square size-16 fill-white stroke-white object-cover"
             />
           </DockIcon>
         ))}

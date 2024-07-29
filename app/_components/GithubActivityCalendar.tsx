@@ -12,7 +12,7 @@ export default function GithubActivityCalendar() {
   const { theme } = useTheme();
   const currentYear = new Date().getFullYear();
   return (
-    <div className="github-calendar col-span-1 flex h-fit flex-col items-center justify-center gap-4 overflow-hidden rounded-3xl bg-card px-10 py-6 shadow-xl">
+    <div className="github-calendar col-span-2 flex h-fit flex-col items-center justify-center gap-4 overflow-hidden rounded-3xl bg-card px-10 py-6 shadow-xl">
       <GitHubCalendar
         username="actuallyakshat"
         colorScheme={theme as "light" | "dark"}
