@@ -39,7 +39,7 @@ export function HomeDock() {
       <Dock
         magnification={65}
         distance={180}
-        className="scale-125 border-black bg-zinc-400/30 backdrop-blur-xl"
+        className="scale-110 border-black bg-white"
       >
         {dockItems.map((item: DockItem) => (
           <DockIcon key={item.name}>

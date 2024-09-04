@@ -3,12 +3,12 @@ import {
   CarouselContent,
   CarouselItem,
 } from "@/components/ui/carousel";
+import { ArrowRight, Cake } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import GithubActivityCalendar from "./_components/GithubActivityCalendar";
-import TechStack from "./_components/TechStack";
-import { ArrowRight, Cake } from "lucide-react";
 import { HomeDock } from "./_components/HomeDock";
+import TechStack from "./_components/TechStack";
 
 export default function Home() {
   return (
@@ -17,7 +17,7 @@ export default function Home() {
       <div className="mx-auto mt-28 grid w-full max-w-screen-xl gap-6 lg:grid-cols-6">
         <IntroCard />
         <div className="col-span-2 flex h-full flex-col gap-6">
-          <div className="relative flex-1 overflow-hidden rounded-2xl border bg-white shadow-xl">
+          <div className="relative flex-1 overflow-hidden rounded-2xl bg-white shadow-xl">
             <Image
               src={"/location.jpeg"}
               alt="location"
@@ -32,6 +32,7 @@ export default function Home() {
         <TechStackCard />
         <AgeCard />
         <HireMeCard />
+        <DateAndTimeCard />
       </div>
     </main>
   );
@@ -39,7 +40,7 @@ export default function Home() {
 
 function IntroCard() {
   return (
-    <div className="relative col-span-4 flex gap-8 rounded-2xl border bg-white p-8 shadow-xl">
+    <div className="relative col-span-4 flex gap-8 rounded-2xl bg-white p-8 shadow-xl">
       <div className="relative h-full min-h-[300px] w-full flex-[2]">
         <Image
           src="/me.jpeg"
@@ -47,7 +48,7 @@ function IntroCard() {
           priority
           layout="fill"
           objectFit="cover"
-          className="aspect-square rounded-xl object-cover object-[center_60%]"
+          className="aspect-square rounded-xl object-cover object-[center_80%]"
         />
       </div>
 
@@ -107,7 +108,7 @@ function SocialCard({ link, icon }: { link: string; icon: string }) {
     <Link
       href={link}
       target="_blank"
-      className="col-span-1 overflow-hidden rounded-2xl border shadow-xl"
+      className="col-span-1 overflow-hidden rounded-2xl shadow-xl"
     >
       <Image
         className="size-full object-cover"
@@ -162,7 +163,7 @@ function GitHubCalendarAndCarousel() {
 
 function TechStackCard() {
   return (
-    <div className="relative col-span-3 overflow-hidden rounded-2xl border bg-white p-4 shadow-xl">
+    <div className="relative col-span-3 overflow-hidden rounded-2xl bg-white p-4 shadow-xl">
       <div className="techstack absolute inset-0 z-[51] flex h-full w-full flex-col items-start justify-end p-8">
         <h2 className="text-lg font-bold text-white">Tech Stack</h2>
         <p className="text-sm text-zinc-100">Tools that I just love to use</p>
@@ -174,11 +175,15 @@ function TechStackCard() {
 
 function AgeCard() {
   return (
-    <div className="relative col-span-1 flex flex-col items-start justify-end rounded-2xl border bg-white p-5 shadow-xl">
+    <div className="relative col-span-1 flex flex-col items-start justify-end rounded-2xl bg-white p-5 shadow-xl">
       <h2 className="text-5xl font-light">20</h2>
       <p className="text-lg font-medium">years old</p>
+
       <span className="absolute right-5 top-4">
-        <Cake className="size-10 stroke-muted-foreground stroke-[1]" />
+        <span className="flex items-center gap-2">
+          Birthday{" "}
+          <Cake className="size-6 stroke-muted-foreground stroke-[1]" />
+        </span>
       </span>
     </div>
   );
@@ -186,9 +191,40 @@ function AgeCard() {
 
 function HireMeCard() {
   return (
-    <div className="hireme group relative col-span-2 flex cursor-pointer items-center justify-center rounded-2xl border bg-white shadow-xl">
-      <h2 className="text-5xl font-extrabold text-white">Hire Me</h2>
-      <ArrowRight className="absolute bottom-4 right-6 text-white transition-transform group-hover:-rotate-45" />
+    <div className="hireme group relative col-span-2 flex cursor-pointer items-center justify-center rounded-2xl bg-white shadow-xl">
+      <h2 className="text-6xl font-extrabold text-white">Hire Me</h2>
+      <ArrowRight className="absolute bottom-4 right-6 text-white transition-transform duration-500 group-hover:-rotate-45" />
+    </div>
+  );
+}
+
+function DateAndTimeCard() {
+  return (
+    <div className="col-span-2 flex gap-6 rounded-2xl bg-white bg-gradient-to-tr from-orange-300/60 to-teal-800/60 p-4 shadow-xl backdrop-blur-3xl">
+      <div className="flex w-fit flex-[2] flex-col gap-10 rounded-2xl bg-gradient-to-tr from-orange-400 to-teal-600 p-4 text-white">
+        <h3 className="text-3xl font-semibold">Sept 4</h3>
+        <span>
+          <h6 className="text-sm font-extralight text-muted">Thursday</h6>
+          <h3 className="font-medium">2 Events</h3>
+        </span>
+      </div>
+      <div className="flex-[3] pt-2 text-white">
+        <h2 className="text-sm font-semibold uppercase text-muted">Upcoming</h2>
+        <div className="mt-3 flex items-start gap-3">
+          <div className="h-10 w-1 rounded-md bg-orange-600"></div>
+          <div>
+            <h3 className="text-sm font-semibold">Learn Spring Security</h3>
+            <p className="text-sm font-light text-muted">12:30 PM - 4:30 PM</p>
+          </div>
+        </div>
+        <div className="mt-3 flex items-start gap-3">
+          <div className="h-10 w-1 rounded-md bg-teal-600"></div>
+          <div>
+            <h3 className="text-sm font-semibold">Solve Leetcode</h3>
+            <p className="text-sm font-light text-muted">9:00 PM - 11:00 PM</p>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
