@@ -1,16 +1,19 @@
-import clsx from "clsx";
-import Image from "next/image";
-import Link from "next/link";
-import GithubActivityCalendar from "./_components/GithubActivityCalendar";
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
 } from "@/components/ui/carousel";
+import Image from "next/image";
+import Link from "next/link";
+import GithubActivityCalendar from "./_components/GithubActivityCalendar";
+import TechStack from "./_components/TechStack";
+import { Cake } from "lucide-react";
+import { HomeDock } from "./_components/HomeDock";
 
 export default function Home() {
   return (
-    <main className="px-8 pb-10">
+    <main className="px-8 pb-32">
+      <HomeDock />
       <div className="mx-auto mt-28 grid w-full max-w-screen-xl gap-6 lg:grid-cols-6">
         <IntroCard />
         <div className="col-span-2 flex h-full flex-col gap-6">
@@ -25,10 +28,10 @@ export default function Home() {
           </div>
           <SocialsGrid />
         </div>
-        <div className="col-span-6 flex items-center gap-6">
-          <SetupImagesCarousel />
-          <GithubActivityCalendar />
-        </div>
+        <GitHubCalendarAndCarousel />
+        <TechStackCard />
+        <AgeCard />
+        <HireMeCard />
       </div>
     </main>
   );
@@ -124,23 +127,67 @@ function SetupImagesCarousel() {
       opts={{
         loop: true,
       }}
-      className="relative h-full w-full flex-1 rounded-2xl bg-white shadow-xl"
+      className="relative h-full w-1/4 overflow-hidden rounded-2xl bg-white shadow-xl"
     >
-      <CarouselContent className="m-0 h-full w-full bg-red-400 p-0">
+      <CarouselContent className="m-0 h-full w-full p-0">
         {Array.from({ length: 4 }).map((_, i) => (
-          <CarouselItem key={i} className="m-0 border-red-400 p-0">
-            <div className="relative h-full w-full flex-1 bg-card p-0">
-              <Image
-                src={"/setup/" + (i + 1) + ".jpeg"}
-                alt="setup image"
-                layout="fill"
-                objectFit="cover"
-                className={`h-full w-full object-cover ${i == 1 || i == 3 ? "object-center" : "object-[center_100%]"}`}
-              />
-            </div>
+          <CarouselItem key={i} className="relative m-0 h-72 p-0">
+            <Image
+              src={"/setup/" + (i + 1) + ".jpeg"}
+              alt="setup image"
+              objectFit="cover"
+              layout="fill"
+              className="aspect-square rounded-2xl object-cover"
+            />
           </CarouselItem>
         ))}
       </CarouselContent>
     </Carousel>
+  );
+}
+
+function GitHubCalendarAndCarousel() {
+  return (
+    <div className="col-span-6 flex min-h-72 flex-col items-center justify-center space-y-6 md:flex-row md:space-x-6 md:space-y-0">
+      {/* Carousel Section */}
+
+      <SetupImagesCarousel />
+
+      {/* GitHub Calendar Section */}
+
+      <GithubActivityCalendar />
+    </div>
+  );
+}
+
+function TechStackCard() {
+  return (
+    <div className="relative col-span-3 overflow-hidden rounded-2xl border bg-white p-4 shadow-xl">
+      <div className="absolute inset-0 z-[51] flex h-full w-full flex-col items-start justify-end bg-gradient-to-r from-black/80 via-black/10 to-black/80 p-8">
+        <h2 className="text-lg font-bold text-white">Tech Stack</h2>
+        <p className="text-sm text-zinc-300">Tools that I just love to use</p>
+      </div>
+      <TechStack />
+    </div>
+  );
+}
+
+function AgeCard() {
+  return (
+    <div className="relative col-span-1 flex flex-col items-start justify-end rounded-2xl border bg-white p-5 shadow-xl">
+      <h2 className="text-5xl font-light">20</h2>
+      <p className="text-lg font-medium">years old</p>
+      <span className="absolute right-5 top-4">
+        <Cake className="size-10 stroke-muted-foreground stroke-[1]" />
+      </span>
+    </div>
+  );
+}
+
+function HireMeCard() {
+  return (
+    <div className="col-span-2 rounded-2xl border bg-white shadow-xl">
+      Hire Me
+    </div>
   );
 }
