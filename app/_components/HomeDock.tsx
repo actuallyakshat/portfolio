@@ -37,7 +37,7 @@ export function HomeDock() {
   return (
     <div className="fixed bottom-10 left-1/2 z-[101] -translate-x-1/2">
       <Dock
-        magnification={60}
+        magnification={65}
         distance={180}
         className="scale-125 border-black bg-zinc-400/30 backdrop-blur-xl"
       >

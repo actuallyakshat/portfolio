@@ -7,7 +7,7 @@ import Image from "next/image";
 import Link from "next/link";
 import GithubActivityCalendar from "./_components/GithubActivityCalendar";
 import TechStack from "./_components/TechStack";
-import { Cake } from "lucide-react";
+import { ArrowRight, Cake } from "lucide-react";
 import { HomeDock } from "./_components/HomeDock";
 
 export default function Home() {
@@ -55,7 +55,7 @@ function IntroCard() {
         <h2 className="text-lg font-medium text-muted-foreground">
           Hey There! My name is
         </h2>
-        <h1 className="bg-gradient-to-b from-rose-400 to-orange-600 bg-clip-text pb-1 text-4xl font-black text-transparent lg:text-5xl">
+        <h1 className="bg-gradient-to-b from-rose-400 to-red-600 bg-clip-text pb-1 text-4xl font-black text-transparent lg:text-5xl">
           Akshat Dubey
         </h1>
         <p className="mt-2 max-w-lg text-muted-foreground">
@@ -163,9 +163,9 @@ function GitHubCalendarAndCarousel() {
 function TechStackCard() {
   return (
     <div className="relative col-span-3 overflow-hidden rounded-2xl border bg-white p-4 shadow-xl">
-      <div className="absolute inset-0 z-[51] flex h-full w-full flex-col items-start justify-end bg-gradient-to-r from-black/80 via-black/10 to-black/80 p-8">
+      <div className="techstack absolute inset-0 z-[51] flex h-full w-full flex-col items-start justify-end p-8">
         <h2 className="text-lg font-bold text-white">Tech Stack</h2>
-        <p className="text-sm text-zinc-300">Tools that I just love to use</p>
+        <p className="text-sm text-zinc-100">Tools that I just love to use</p>
       </div>
       <TechStack />
     </div>
@@ -186,8 +186,9 @@ function AgeCard() {
 
 function HireMeCard() {
   return (
-    <div className="col-span-2 rounded-2xl border bg-white shadow-xl">
-      Hire Me
+    <div className="hireme group relative col-span-2 flex cursor-pointer items-center justify-center rounded-2xl border bg-white shadow-xl">
+      <h2 className="text-5xl font-extrabold text-white">Hire Me</h2>
+      <ArrowRight className="absolute bottom-4 right-6 text-white transition-transform group-hover:-rotate-45" />
     </div>
   );
 }
