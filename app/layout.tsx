@@ -1,15 +1,12 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import Navbar from "./_components/Navbar";
-import LinksDock from "./_components/LinksDock";
-import { ThemeProvider } from "@/providers/theme-provider";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Akshat Dubey",
-  description: "Portfolio of Akshat Dubey",
+  description: "Akshat Dubey's portfolio",
 };
 
 export default function RootLayout({
@@ -19,13 +16,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>
-        <ThemeProvider attribute="class" defaultTheme="light">
-          <Navbar />
-          {children}
-          <LinksDock />
-        </ThemeProvider>
-      </body>
+      <body className={`${inter.className} bg-[#ebebec]`}>{children}</body>
     </html>
   );
 }
