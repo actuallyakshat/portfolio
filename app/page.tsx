@@ -2,13 +2,16 @@ import {
   Carousel,
   CarouselContent,
   CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
 } from "@/components/ui/carousel";
-import { ArrowRight, Cake } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import GithubActivityCalendar from "./_components/GithubActivityCalendar";
 import { HomeDock } from "./_components/HomeDock";
 import TechStack from "./_components/TechStack";
+import { div, image } from "framer-motion/client";
 
 export default function Home() {
   return (
@@ -32,7 +35,15 @@ export default function Home() {
         <TechStackCard />
         <AgeCard />
         <HireMeCard />
-        <DateAndTimeCard />
+        <div className="col-span-2 flex flex-col gap-6">
+          <DateAndTimeCard />
+          <FreelanceProjects />
+        </div>
+        <div className="col-span-1 flex h-full flex-col gap-6">
+          <BounceBackCard />
+          <BestPerformerCard />
+        </div>
+        <FeaturedProjects />
       </div>
     </main>
   );
@@ -130,7 +141,7 @@ function SetupImagesCarousel() {
       }}
       className="relative h-full w-1/4 overflow-hidden rounded-2xl bg-white shadow-xl"
     >
-      <CarouselContent className="m-0 h-full w-full p-0">
+      <CarouselContent className="relative m-0 h-full w-full p-0">
         {Array.from({ length: 4 }).map((_, i) => (
           <CarouselItem key={i} className="relative m-0 h-72 p-0">
             <Image
@@ -138,11 +149,13 @@ function SetupImagesCarousel() {
               alt="setup image"
               objectFit="cover"
               layout="fill"
-              className="aspect-square rounded-2xl object-cover"
+              className="aspect-square object-cover"
             />
           </CarouselItem>
         ))}
       </CarouselContent>
+      <CarouselPrevious className="text-white" />
+      <CarouselNext className="text-white" />
     </Carousel>
   );
 }
@@ -175,17 +188,19 @@ function TechStackCard() {
 
 function AgeCard() {
   return (
-    <div className="relative col-span-1 flex flex-col items-start justify-end rounded-2xl bg-white p-5 shadow-xl">
-      <h2 className="text-5xl font-light">20</h2>
-      <p className="text-lg font-medium">years old</p>
+    <Link
+      href={"https://wishly.vercel.app"}
+      target="_blank"
+      className="group relative col-span-1 flex flex-col items-start justify-end rounded-2xl bg-white p-5 shadow-xl"
+    >
+      <h2 className="text-6xl font-black">20</h2>
+      <p className="text-lg font-light uppercase">years old</p>
+      <p className="text-xs italic text-muted-foreground">I was born in 2004</p>
 
       <span className="absolute right-5 top-4">
-        <span className="flex items-center gap-2">
-          Birthday{" "}
-          <Cake className="size-6 stroke-muted-foreground stroke-[1]" />
-        </span>
+        <ArrowRight className="size-12 stroke-[1px] transition-transform duration-500 group-hover:-rotate-45" />
       </span>
-    </div>
+    </Link>
   );
 }
 
@@ -200,9 +215,9 @@ function HireMeCard() {
 
 function DateAndTimeCard() {
   return (
-    <div className="col-span-2 flex gap-6 rounded-2xl bg-white bg-gradient-to-tr from-orange-300/60 to-teal-800/60 p-4 shadow-xl backdrop-blur-3xl">
-      <div className="flex w-fit flex-[2] flex-col gap-10 rounded-2xl bg-gradient-to-tr from-orange-400 to-teal-600 p-4 text-white">
-        <h3 className="text-3xl font-semibold">Sept 4</h3>
+    <div className="col-span-2 flex h-fit gap-6 rounded-2xl bg-white bg-gradient-to-tr from-pink-600/20 via-teal-900/50 to-teal-700 p-4 shadow-xl backdrop-blur-3xl">
+      <div className="flex w-fit flex-[2] flex-col gap-10 rounded-2xl bg-gradient-to-tr from-rose-400/30 via-teal-900 to-teal-700 p-4 text-white">
+        <h3 className="text-3xl font-semibold">Sept 5</h3>
         <span>
           <h6 className="text-sm font-extralight text-muted">Thursday</h6>
           <h3 className="font-medium">2 Events</h3>
@@ -226,5 +241,193 @@ function DateAndTimeCard() {
         </div>
       </div>
     </div>
+  );
+}
+
+const PROJECTS = [
+  {
+    title: "Nota Rapida",
+    description:
+      "Nota Rapida is a simple note taking app that wishes to provide a minimalistic note-taking experience.",
+    url: "https://nota-rapida.vercel.app",
+    gradient: "bg-gradient-to-r from-sky-700 via-orange-700 to-violet-900",
+  },
+  {
+    title: "Surf Track",
+    description:
+      "Surf Track is a productivity extension designed to help you monitor and manage your online activity.",
+    url: "https://chromewebstore.google.com/detail/surf-track/injkidbnadfahmbcimpejmncnmogeoid",
+    gradient: "bg-gradient-to-tr from-gray-500 via-gray-900 to-gray-600",
+  },
+  {
+    title: "Zipit",
+    description:
+      "Zipit allows you to seamlessly share files from any device with anyone, anywhere.",
+    url: "https://justzipit.vercel.app",
+    gradient: "bg-gradient-to-tr from-sky-400 to-violet-900",
+  },
+  {
+    title: "Wishly",
+    description:
+      "Wishly helps you set reminder for those special days you can't afford to forget.",
+    url: "https://wishly.vercel.app",
+    gradient: "bg-gradient-to-b from-lime-600 via-green-800 to-teal-900",
+  },
+];
+
+function FeaturedProjects() {
+  return (
+    <div className="relative col-span-3 overflow-hidden rounded-2xl bg-[#2a2a2a] p-6 shadow-xl">
+      <div className="projects-gradient absolute inset-0 right-0 top-0 z-[1]"></div>
+      <div className="flex w-full items-center justify-between">
+        <h2 className="relative z-[2] text-4xl font-bold text-white">
+          Featured Projects
+        </h2>
+      </div>
+
+      <div className="mt-4 grid grid-cols-2 gap-4">
+        {PROJECTS.map((project: any) => (
+          <ProjectCard
+            key={project.title}
+            title={project.title}
+            description={project.description}
+            url={project.url}
+            gradient={project.gradient}
+          />
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function ProjectCard({
+  title,
+  description,
+  url,
+  gradient,
+}: {
+  title: string;
+  description: string;
+  url: string;
+  gradient: string;
+}) {
+  return (
+    <Link
+      href={url}
+      target="_blank"
+      className="group relative z-[1] col-span-1 overflow-hidden rounded-xl"
+    >
+      <div
+        className={`relative flex h-[100px] items-center justify-center overflow-hidden ${gradient}`}
+      >
+        <h2 className="z-[1] text-3xl font-black text-white">{title}</h2>
+      </div>
+      <div className="bg-white p-4">
+        <p className="text-sm">{description}</p>
+      </div>
+    </Link>
+  );
+}
+
+const FREELANCE_PROJECTS = [
+  {
+    title: "Sai Logistics",
+    url: "https://sai-logistics.vercel.app",
+    image: "/freelance-projects/sailogistics.png",
+  },
+  {
+    title: "AR Design Studio",
+    url: "https://ar-design-studio.vercel.app",
+    image: "/freelance-projects/ar.png",
+  },
+];
+
+function FreelanceProjects() {
+  return (
+    <div className="col-span-2 flex h-full flex-col gap-4 rounded-2xl bg-gradient-to-b from-slate-100 via-slate-500 to-slate-100 p-4 shadow-xl">
+      <h2 className="text-xl font-semibold uppercase">Freelance Projects</h2>
+      <div className="flex flex-1 flex-col gap-3">
+        {FREELANCE_PROJECTS.map((project: any) => (
+          <FreelanceProjectCard
+            key={project.title}
+            title={project.title}
+            url={project.url}
+            image={project.image}
+          />
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function FreelanceProjectCard({
+  title,
+  url,
+  image,
+}: {
+  title: string;
+  url: string;
+  image: string;
+}) {
+  return (
+    <Link
+      href={url}
+      target="_blank"
+      className="group relative w-full flex-1 overflow-hidden rounded-xl"
+    >
+      <Image
+        src={image}
+        alt="Sai Logistics"
+        layout="fill"
+        objectFit="cover"
+        className="aspect-square object-cover object-top blur-[1.5px]"
+      />
+      <div className="absolute inset-0 flex items-end justify-start bg-black/30 p-4 text-2xl font-semibold text-white transition-colors group-hover:bg-black/70">
+        <span className="flex items-center gap-3">
+          {title}{" "}
+          <ArrowRight className="size-5 transition-transform duration-500 group-hover:-rotate-45" />
+        </span>
+      </div>
+    </Link>
+  );
+}
+
+function BounceBackCard() {
+  return (
+    <Link
+      target="_blank"
+      href={
+        "https://www.linkedin.com/posts/actuallyakshat_selfhelp-productivity-lifestyle-activity-7047222492318314497-pFN1?utm_source=share&utm_medium=member_desktop"
+      }
+      className="relative h-fit overflow-hidden rounded-2xl bg-white shadow-xl"
+    >
+      <Image
+        src={"/bounceback.png"}
+        alt="Bounce Back"
+        width={1080}
+        height={1080}
+        className="h-full"
+      />
+    </Link>
+  );
+}
+
+function BestPerformerCard() {
+  return (
+    <Link
+      target="_blank"
+      href={
+        "https://www.linkedin.com/posts/actuallyakshat_gratitude-academicachievement-activity-7159840099206107136-rbo3?utm_source=share&utm_medium=member_desktop"
+      }
+      className="relative flex-1 overflow-hidden rounded-2xl bg-white p-4 shadow-xl"
+    >
+      <Image
+        src={"/bestperformer.jpeg"}
+        alt="Best Performer in SCSET Award"
+        layout="fill"
+        objectFit="cover"
+        className="aspect-square object-cover"
+      />
+    </Link>
   );
 }
