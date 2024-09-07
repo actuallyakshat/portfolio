@@ -206,10 +206,13 @@ function AgeCard() {
 
 function HireMeCard() {
   return (
-    <div className="hireme group relative col-span-2 flex cursor-pointer items-center justify-center rounded-2xl bg-white shadow-xl">
+    <Link
+      href={"contact"}
+      className="hireme group relative col-span-2 flex items-center justify-center rounded-2xl bg-white shadow-xl"
+    >
       <h2 className="text-6xl font-extrabold text-white">Hire Me</h2>
       <ArrowRight className="absolute bottom-4 right-6 text-white transition-transform duration-500 group-hover:-rotate-45" />
-    </div>
+    </Link>
   );
 }
 
@@ -283,6 +286,12 @@ function FeaturedProjects() {
         <h2 className="relative z-[2] text-4xl font-bold text-white">
           Featured Projects
         </h2>
+        <Link
+          href={"/projects"}
+          className="text-sm font-medium text-white hover:underline"
+        >
+          View All
+        </Link>
       </div>
 
       <div className="mt-4 grid grid-cols-2 gap-4">

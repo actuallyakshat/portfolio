@@ -43,7 +43,10 @@ export function HomeDock() {
       >
         {dockItems.map((item: DockItem) => (
           <DockIcon key={item.name}>
-            <Link href={item.href} target="_blank">
+            <Link
+              href={item.href}
+              target={item.href === "/projects" ? "_self" : "_blank"}
+            >
               <Image
                 src={item.icon}
                 alt={item.name}

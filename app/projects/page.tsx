@@ -1,5 +1,6 @@
 import { Badge } from "@/components/ui/badge";
 import { Github, Globe } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
@@ -60,7 +61,15 @@ function DetailedProjectCard() {
 
   return (
     <div className="col-span-1 overflow-hidden rounded-3xl bg-white">
-      <div className="h-[160px] bg-zinc-800"></div>
+      <div className="relative h-[160px]">
+        <Image
+          src={"/project-display/nr.png"}
+          alt="Nota Rapida"
+          layout="fill"
+          objectFit="cover"
+          className="object-center"
+        ></Image>
+      </div>
       <div className="p-4">
         <h2 className="font-bold">Project Title</h2>
         <h4 className="py-1 text-sm">Jan 2024</h4>
