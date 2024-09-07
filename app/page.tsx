@@ -11,34 +11,27 @@ import Link from "next/link";
 import GithubActivityCalendar from "./_components/GithubActivityCalendar";
 import { HomeDock } from "./_components/HomeDock";
 import TechStack from "./_components/TechStack";
+import { formatDate, getAge, getCurrentDay } from "@/lib/utils";
 
 export default function Home() {
   return (
     <main className="px-8 pb-32">
       <HomeDock />
-      <div className="mx-auto mt-28 grid w-full max-w-screen-xl gap-6 lg:grid-cols-6">
+      <div className="mx-auto mt-28 grid w-full max-w-screen-xl grid-cols-6 gap-6">
         <IntroCard />
-        <div className="col-span-2 flex h-full flex-col gap-6">
-          <div className="relative flex-1 overflow-hidden rounded-2xl bg-white shadow-xl">
-            <Image
-              src={"/location.jpeg"}
-              alt="location"
-              layout="fill"
-              objectFit="cover"
-              priority
-            />
-          </div>
+        <div className="col-span-6 flex h-full flex-col gap-6 md:col-span-2">
+          <LocationCard />
           <SocialsGrid />
         </div>
         <GitHubCalendarAndCarousel />
         <TechStackCard />
         <AgeCard />
         <HireMeCard />
-        <div className="col-span-2 flex flex-col gap-6">
+        <div className="col-span-6 flex flex-col gap-6 md:col-span-2">
           <DateAndTimeCard />
           <FreelanceProjects />
         </div>
-        <div className="col-span-1 flex h-full flex-col gap-6">
+        <div className="col-span-6 flex h-full flex-col gap-6 md:col-span-1">
           <BounceBackCard />
           <BestPerformerCard />
         </div>
@@ -50,7 +43,7 @@ export default function Home() {
 
 function IntroCard() {
   return (
-    <div className="relative col-span-4 flex gap-8 rounded-2xl bg-white p-8 shadow-xl">
+    <div className="relative col-span-6 flex flex-col gap-8 rounded-2xl bg-white p-8 shadow-xl md:col-span-4 lg:flex-row">
       <div className="relative h-full min-h-[300px] w-full flex-[2]">
         <Image
           src="/me.jpeg"
@@ -58,7 +51,7 @@ function IntroCard() {
           priority
           layout="fill"
           objectFit="cover"
-          className="aspect-square rounded-xl object-cover object-[center_80%]"
+          className="aspect-square rounded-xl object-cover object-[center_50%] lg:object-[center_80%]"
         />
       </div>
 
@@ -76,6 +69,21 @@ function IntroCard() {
           for new challenges to push my skills to the next level.
         </p>
       </div>
+    </div>
+  );
+}
+
+function LocationCard() {
+  return (
+    <div className="relative min-h-64 w-full flex-1 overflow-hidden rounded-2xl bg-white shadow-xl md:h-full">
+      <Image
+        src={"/location.jpeg"}
+        alt="location"
+        layout="fill"
+        objectFit="cover"
+        priority
+        className="size-full"
+      />
     </div>
   );
 }
@@ -138,7 +146,7 @@ function SetupImagesCarousel() {
       opts={{
         loop: true,
       }}
-      className="relative h-full w-1/4 overflow-hidden rounded-2xl bg-white shadow-xl"
+      className="relative h-full w-full overflow-hidden rounded-2xl bg-white shadow-xl md:w-1/4"
     >
       <CarouselContent className="relative m-0 h-full w-full p-0">
         {Array.from({ length: 4 }).map((_, i) => (
@@ -148,7 +156,7 @@ function SetupImagesCarousel() {
               alt="setup image"
               objectFit="cover"
               layout="fill"
-              className="aspect-square object-cover"
+              className="size-full object-cover"
             />
           </CarouselItem>
         ))}
@@ -161,7 +169,7 @@ function SetupImagesCarousel() {
 
 function GitHubCalendarAndCarousel() {
   return (
-    <div className="col-span-6 flex min-h-72 flex-col items-center justify-center space-y-6 md:flex-row md:space-x-6 md:space-y-0">
+    <div className="col-span-6 flex h-full flex-col items-center justify-center space-y-6 md:min-h-72 md:flex-row md:space-x-6 md:space-y-0">
       {/* Carousel Section */}
 
       <SetupImagesCarousel />
@@ -175,7 +183,7 @@ function GitHubCalendarAndCarousel() {
 
 function TechStackCard() {
   return (
-    <div className="relative col-span-3 overflow-hidden rounded-2xl bg-white p-4 shadow-xl">
+    <div className="relative col-span-6 overflow-hidden rounded-2xl bg-white p-4 shadow-xl lg:col-span-3">
       <div className="techstack absolute inset-0 z-[51] flex h-full w-full flex-col items-start justify-end p-8">
         <h2 className="text-lg font-bold text-white">Tech Stack</h2>
         <p className="text-sm text-zinc-100">Tools that I just love to use</p>
@@ -190,14 +198,14 @@ function AgeCard() {
     <Link
       href={"https://wishly.vercel.app"}
       target="_blank"
-      className="group relative col-span-1 flex flex-col items-start justify-end rounded-2xl bg-white p-5 shadow-xl"
+      className="group relative col-span-6 flex flex-col items-start justify-end rounded-2xl bg-white p-5 shadow-xl sm:col-span-2 lg:col-span-1"
     >
-      <h2 className="text-6xl font-black">20</h2>
+      <h2 className="text-6xl font-black">{getAge()}</h2>
       <p className="text-lg font-light uppercase">years old</p>
       <p className="text-xs italic text-muted-foreground">I was born in 2004</p>
 
       <span className="absolute right-5 top-4">
-        <ArrowRight className="size-12 stroke-[1px] transition-transform duration-500 group-hover:-rotate-45" />
+        <ArrowRight className="size-8 stroke-[1px] transition-transform duration-500 group-hover:-rotate-45" />
       </span>
     </Link>
   );
@@ -207,7 +215,7 @@ function HireMeCard() {
   return (
     <Link
       href={"contact"}
-      className="hireme group relative col-span-2 flex items-center justify-center rounded-2xl bg-white shadow-xl"
+      className="hireme group relative col-span-6 flex min-h-56 items-center justify-center rounded-2xl bg-white shadow-xl sm:col-span-4 md:min-h-full lg:col-span-2"
     >
       <h2 className="text-6xl font-extrabold text-white">Hire Me</h2>
       <ArrowRight className="absolute bottom-4 right-6 text-white transition-transform duration-500 group-hover:-rotate-45" />
@@ -219,9 +227,11 @@ function DateAndTimeCard() {
   return (
     <div className="col-span-2 flex h-fit gap-6 rounded-2xl bg-white bg-gradient-to-tr from-pink-600/20 via-teal-900/50 to-teal-700 p-4 shadow-xl backdrop-blur-3xl">
       <div className="flex w-fit flex-[2] flex-col gap-10 rounded-2xl bg-gradient-to-tr from-rose-400/30 via-teal-900 to-teal-700 p-4 text-white">
-        <h3 className="text-3xl font-semibold">Sept 5</h3>
+        <h3 className="text-3xl font-semibold">{formatDate()}</h3>
         <span>
-          <h6 className="text-sm font-extralight text-muted">Thursday</h6>
+          <h6 className="text-sm font-extralight text-muted">
+            {getCurrentDay()}
+          </h6>
           <h3 className="font-medium">2 Events</h3>
         </span>
       </div>
@@ -279,21 +289,21 @@ const PROJECTS = [
 
 function FeaturedProjects() {
   return (
-    <div className="relative col-span-3 overflow-hidden rounded-2xl bg-[#2a2a2a] p-6 shadow-xl">
+    <div className="relative col-span-6 overflow-hidden rounded-2xl bg-[#2a2a2a] p-6 shadow-xl md:col-span-3">
       <div className="projects-gradient absolute inset-0 right-0 top-0 z-[1]"></div>
       <div className="flex w-full items-center justify-between">
-        <h2 className="relative z-[2] text-4xl font-bold text-white">
+        <h2 className="relative z-[2] text-2xl font-bold text-white md:text-4xl">
           Featured Projects
         </h2>
         <Link
           href={"/projects"}
-          className="text-sm font-medium text-white hover:underline"
+          className="relative z-[1] text-sm font-medium text-white hover:underline"
         >
           View All
         </Link>
       </div>
 
-      <div className="mt-4 grid grid-cols-2 gap-4">
+      <div className="mt-4 grid grid-cols-1 gap-4 md:grid-cols-2">
         {PROJECTS.map((project: any) => (
           <ProjectCard
             key={project.title}
@@ -354,7 +364,7 @@ function FreelanceProjects() {
   return (
     <div className="col-span-2 flex h-full flex-col gap-4 rounded-2xl bg-gradient-to-b from-slate-100 via-slate-500 to-slate-100 p-4 shadow-xl">
       <h2 className="text-xl font-semibold uppercase">Freelance Projects</h2>
-      <div className="flex flex-1 flex-col gap-3">
+      <div className="flex h-full flex-1 flex-col gap-3">
         {FREELANCE_PROJECTS.map((project: any) => (
           <FreelanceProjectCard
             key={project.title}
@@ -381,7 +391,7 @@ function FreelanceProjectCard({
     <Link
       href={url}
       target="_blank"
-      className="group relative w-full flex-1 overflow-hidden rounded-xl"
+      className="group relative h-full min-h-24 w-full flex-1 overflow-hidden rounded-xl"
     >
       <Image
         src={image}
@@ -427,7 +437,7 @@ function BestPerformerCard() {
       href={
         "https://www.linkedin.com/posts/actuallyakshat_gratitude-academicachievement-activity-7159840099206107136-rbo3?utm_source=share&utm_medium=member_desktop"
       }
-      className="relative flex-1 overflow-hidden rounded-2xl bg-white p-4 shadow-xl"
+      className="relative min-h-56 flex-1 overflow-hidden rounded-2xl bg-white p-4 shadow-xl md:h-full"
     >
       <Image
         src={"/bestperformer.jpeg"}
