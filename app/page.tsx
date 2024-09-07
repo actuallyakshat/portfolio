@@ -11,7 +11,6 @@ import Link from "next/link";
 import GithubActivityCalendar from "./_components/GithubActivityCalendar";
 import { HomeDock } from "./_components/HomeDock";
 import TechStack from "./_components/TechStack";
-import { div, image } from "framer-motion/client";
 
 export default function Home() {
   return (
