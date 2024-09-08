@@ -18,7 +18,7 @@ export default function Home() {
       <HomeDock />
       <div className="mx-auto mt-28 grid w-full max-w-screen-xl grid-cols-6 gap-6">
         <IntroCard />
-        <div className="col-span-6 flex h-full flex-col gap-6 md:col-span-2">
+        <div className="col-span-6 flex h-full flex-col gap-6 lg:col-span-2">
           <LocationCard />
           <SocialsGrid />
         </div>
@@ -26,11 +26,11 @@ export default function Home() {
         <TechStackCard />
         <AgeCard />
         <HireMeCard />
-        <div className="col-span-6 flex flex-col gap-6 md:col-span-2">
+        <div className="col-span-6 flex flex-col gap-6 lg:col-span-2">
           <DateAndTimeCard />
           <FreelanceProjects />
         </div>
-        <div className="col-span-6 flex h-full flex-col gap-6 md:col-span-1">
+        <div className="col-span-6 flex h-full flex-col gap-6 lg:col-span-1">
           <BounceBackCard />
           <BestPerformerCard />
         </div>

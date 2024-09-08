@@ -33,7 +33,7 @@ const PROJECTS = [
 
 export function FeaturedProjects() {
   return (
-    <div className="relative col-span-6 overflow-hidden rounded-2xl bg-[#2a2a2a] p-6 shadow-xl md:col-span-3">
+    <div className="relative col-span-6 overflow-hidden rounded-2xl bg-[#2a2a2a] p-6 shadow-xl lg:col-span-3">
       <div className="projects-gradient absolute inset-0 right-0 top-0 z-[1]"></div>
       <div className="flex w-full items-center justify-between">
         <h2 className="relative z-[2] text-2xl font-bold text-white md:text-4xl">
@@ -47,7 +47,7 @@ export function FeaturedProjects() {
         </Link>
       </div>
 
-      <div className="mt-4 grid grid-cols-1 gap-4 md:grid-cols-2">
+      <div className="mt-4 grid grid-cols-1 gap-4 lg:grid-cols-2">
         {PROJECTS.map((project: any) => (
           <ProjectCard
             key={project.title}

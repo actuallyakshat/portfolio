@@ -13,7 +13,7 @@ export function SetupImagesCarousel() {
       opts={{
         loop: true,
       }}
-      className="relative h-full w-full overflow-hidden rounded-2xl bg-white shadow-xl md:w-1/4"
+      className="relative h-full w-full overflow-hidden rounded-2xl bg-white shadow-xl lg:w-1/4"
     >
       <CarouselContent className="relative m-0 h-full w-full p-0">
         {Array.from({ length: 4 }).map((_, i) => (

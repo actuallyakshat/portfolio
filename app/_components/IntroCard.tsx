@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export function IntroCard() {
   return (
-    <div className="relative col-span-6 flex flex-col gap-8 rounded-2xl bg-white p-8 shadow-xl md:col-span-4 lg:flex-row">
+    <div className="relative col-span-6 flex flex-col gap-8 rounded-2xl bg-white p-8 shadow-xl lg:col-span-4 xl:flex-row">
       <div className="relative h-full min-h-[300px] w-full flex-[2]">
         <Image
           src="/me.jpeg"
@@ -10,7 +10,7 @@ export function IntroCard() {
           priority
           layout="fill"
           objectFit="cover"
-          className="aspect-square rounded-xl object-cover object-[center_50%] lg:object-[center_80%]"
+          className="aspect-square rounded-xl object-cover object-[center_50%] xl:object-[center_80%]"
         />
       </div>
 
