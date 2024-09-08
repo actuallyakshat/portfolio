@@ -6,7 +6,6 @@ import { FeaturedProjects } from "./_components/FeaturedProjects";
 import { FreelanceProjects } from "./_components/FreelanceProjects";
 import { GitHubCalendarAndCarousel } from "./_components/GitHubCalendarAndCarousel";
 import { HireMeCard } from "./_components/HireMeCard";
-import { HomeDock } from "./_components/HomeDock";
 import { IntroCard } from "./_components/IntroCard";
 import { LocationCard } from "./_components/LocationCard";
 import { SocialsGrid } from "./_components/SocialsGrid";
@@ -15,7 +14,6 @@ import { TechStackCard } from "./_components/TechStackCard";
 export default function Home() {
   return (
     <main className="px-8 pb-32">
-      <HomeDock />
       <div className="mx-auto mt-28 grid w-full max-w-screen-xl grid-cols-6 gap-6">
         <IntroCard />
         <div className="col-span-6 flex h-full flex-col gap-6 lg:col-span-2">

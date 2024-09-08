@@ -11,6 +11,11 @@ interface DockItem {
 
 const dockItems = [
   {
+    name: "Home",
+    href: "/",
+    icon: "/dock-icons/home.png",
+  },
+  {
     name: "Github",
     href: "https://github.com/actuallyakshat",
     icon: "/dock-icons/github.png",
@@ -26,6 +31,11 @@ const dockItems = [
     icon: "/dock-icons/project.png",
   },
   { name: "Resume", href: "#", icon: "/dock-icons/cv.png" },
+  {
+    name: "Contact",
+    href: "/contact",
+    icon: "/dock-icons/contact.png",
+  },
   {
     name: "Email",
     href: "mailto:akshatdubey0808@gmail.com",
@@ -45,7 +55,13 @@ export function HomeDock() {
           <DockIcon key={item.name}>
             <Link
               href={item.href}
-              target={item.href === "/projects" ? "_self" : "_blank"}
+              target={
+                item.href === "/projects" ||
+                item.href === "/" ||
+                item.href === "/contact"
+                  ? "_self"
+                  : "_blank"
+              }
             >
               <Image
                 src={item.icon}
