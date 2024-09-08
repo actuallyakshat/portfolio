@@ -1,8 +1,5 @@
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
 import Image from "next/image";
-import React from "react";
+import { ContactForm } from "../_components/ContactForm";
 
 export default function Contact() {
   return (
@@ -14,15 +11,7 @@ export default function Contact() {
         <p className="max-w-xl text-center font-light text-muted-foreground lg:text-lg">
           Wanna connect with me? Feel free to leave a message!
         </p>
-        <form className="mt-4 flex w-full max-w-lg flex-col gap-2">
-          <Input type="text" placeholder="Your Name" />
-          <Input type="email" placeholder="Your Email" />
-          <Input type="text" placeholder="Subject" />
-          <Textarea placeholder="Your Message" />
-          <Button className="via- mt-4 bg-gradient-to-t from-[#1c0913] to-[#860162]">
-            Send Message
-          </Button>
-        </form>
+        <ContactForm />
       </div>
       <aside className="relative order-last col-span-7 hidden h-full w-full lg:block">
         <Image
