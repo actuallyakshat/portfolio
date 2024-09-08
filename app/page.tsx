@@ -13,8 +13,8 @@ import { TechStackCard } from "./_components/TechStackCard";
 
 export default function Home() {
   return (
-    <main className="px-8 pb-32">
-      <div className="mx-auto mt-28 grid w-full max-w-screen-xl grid-cols-6 gap-6">
+    <main className="px-8 pb-28">
+      <div className="mx-auto grid w-full max-w-screen-xl grid-cols-6 gap-6 pt-14">
         <IntroCard />
         <div className="col-span-6 flex h-full flex-col gap-6 lg:col-span-2">
           <LocationCard />

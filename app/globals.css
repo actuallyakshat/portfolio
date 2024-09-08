@@ -115,3 +115,8 @@ a {
   border: none;
   border-radius: 20px;
 }
+
+*::selection {
+  color: white;
+  background: #e63f46;
+}
