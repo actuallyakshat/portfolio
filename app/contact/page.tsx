@@ -12,7 +12,7 @@ export default function Contact() {
           Contact Me
         </h1>
         <p className="max-w-xl text-center font-light text-muted-foreground lg:text-lg">
-          Wanna connect with me? Feel free to leave a message for me
+          Wanna connect with me? Feel free to leave a message!
         </p>
         <form className="mt-4 flex w-full max-w-lg flex-col gap-2">
           <Input type="text" placeholder="Your Name" />

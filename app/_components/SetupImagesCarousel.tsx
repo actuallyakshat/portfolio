@@ -13,16 +13,16 @@ export function SetupImagesCarousel() {
       opts={{
         loop: true,
       }}
-      className="relative h-full w-full overflow-hidden rounded-2xl bg-white shadow-xl lg:w-1/4"
+      className="relative w-full overflow-hidden rounded-2xl shadow-xl sm:w-full lg:h-full lg:w-1/4"
     >
-      <CarouselContent className="relative m-0 h-full w-full p-0">
+      <CarouselContent className="relative m-0 w-full p-0 lg:h-full">
         {Array.from({ length: 15 }).map((_, i) => (
           <CarouselItem
             key={i}
             className="relative m-0 h-72 p-0 sm:min-h-[40rem] lg:h-72 lg:min-h-0"
           >
             <Image
-              quality={80}
+              quality={100}
               src={"/setup/" + (i + 1) + ".jpg"}
               alt="setup image"
               objectFit="cover"
