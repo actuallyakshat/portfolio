@@ -101,7 +101,7 @@ const PROJECTS = [
     links: [
       {
         name: "Website",
-        href: "#",
+        href: "https://chromewebstore.google.com/detail/chat-gpt-bookmarks/emlidbpgkfapekklkbdlpmbflanejkll?hl=en",
         icon: <Globe className="size-3" />,
       },
       {
