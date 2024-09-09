@@ -115,8 +115,9 @@ const PROJECTS = [
   {
     name: "Surf Track",
     duration: "July 2024",
-    description: "Coming Soon",
-    techStack: ["Next.js", "Tailwind CSS", "TypeScript", "React", "Node.js"],
+    description:
+      "Surf Track is a productivity extension designed to help you monitor and manage your online activity. By tracking the time you spend on various websites, Surf Track provides valuable insights into your browsing habits, empowering you to make informed decisions about how you spend your time online.",
+    techStack: ["Plasmo", "Tailwind CSS", "TypeScript", "React"],
     links: [
       {
         name: "Website",
@@ -225,7 +226,8 @@ const PROJECTS = [
   {
     name: "Class Tag",
     duration: "August 2024 - Present",
-    description: "Coming Soon",
+    description:
+      "A web app that allows teachers to create and manage attendance for their students. This project aims to solve the problem of students marking proxy attedance for students who are not present in the classroom. It has a data visualization feature that displays the attendance data in a visually appealing and easy-to-understand format.",
     techStack: ["Next.js", "Tailwind CSS", "TypeScript", "React", "Node.js"],
     links: [
       {
@@ -244,7 +246,8 @@ const PROJECTS = [
   {
     name: "Sorting Visualiser",
     duration: "September 2023 - November 2023",
-    description: "Coming Soon",
+    description:
+      "A web app that allows users to visualise and compare different sorting algorithms. Built with HTML, CSS, and JavaScript, it provides a user-friendly interface for selecting and configuring sorting algorithms, as well as displaying their respective time and space complexities.",
     techStack: ["HTML", "CSS", "JavaScript"],
     links: [
       {
