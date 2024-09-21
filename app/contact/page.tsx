@@ -20,7 +20,7 @@ export default function Contact() {
           width={1080}
           height={1080}
           quality={100}
-          className="absolute right-2 top-1/2 h-[99%] w-full -translate-y-1/2 rounded-3xl object-cover"
+          className="absolute right-2 top-1/2 h-[99%] w-full -translate-y-1/2 rounded-3xl bg-muted object-cover"
         />
       </aside>
     </main>

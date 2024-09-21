@@ -27,7 +27,7 @@ export function SetupImagesCarousel() {
               alt="setup image"
               objectFit="cover"
               layout="fill"
-              className="size-full object-cover object-center"
+              className="size-full bg-muted object-cover object-center"
             />
           </CarouselItem>
         ))}

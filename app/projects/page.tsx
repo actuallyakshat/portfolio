@@ -63,7 +63,7 @@ const PROJECTS = [
         icon: <Github className="size-3" />,
       },
     ],
-    image: "w.png",
+    image: "wishly.png",
   },
   {
     name: "Nota Rapida",
@@ -224,26 +224,6 @@ const PROJECTS = [
     image: "studysnap.png",
   },
   {
-    name: "Class Tag",
-    duration: "August 2024 - Present",
-    description:
-      "A web app that allows teachers to create and manage attendance for their students. This project aims to solve the problem of students marking proxy attedance for students who are not present in the classroom. It has a data visualization feature that displays the attendance data in a visually appealing and easy-to-understand format.",
-    techStack: ["Next.js", "Tailwind CSS", "TypeScript", "React", "Node.js"],
-    links: [
-      {
-        name: "Website",
-        href: "#",
-        icon: <Globe className="size-3" />,
-      },
-      {
-        name: "Source",
-        href: "#",
-        icon: <Github className="size-3" />,
-      },
-    ],
-    image: "classtag.png",
-  },
-  {
     name: "Sorting Visualiser",
     duration: "September 2023 - November 2023",
     description:
@@ -262,6 +242,81 @@ const PROJECTS = [
       },
     ],
     image: "sortingvisualiser.png",
+  },
+  {
+    name: "SRK Gallery",
+    duration: "September 2024 - September 2024",
+    description:
+      "A cute little gallery of my favourite motivational clips of Shah Rukh Khan",
+    techStack: ["Next.js", "Cloudinary", "React", "Tailwind CSS"],
+    links: [
+      {
+        name: "Website",
+        href: "https://srk-gallery.vercel.app",
+        icon: <Globe className="size-3" />,
+      },
+      {
+        name: "Source",
+        href: "https://github.com/actuallyakshat/srk-gallery",
+        icon: <Github className="size-3" />,
+      },
+    ],
+    image: "srk-gallery.png",
+  },
+  {
+    name: "Class Tag (Coming Soon)",
+    duration: "August 2024 - Present",
+    description:
+      "A web app that allows teachers to create and manage attendance for their students. This project aims to solve the problem of students marking proxy attedance for students who are not present in the classroom. It has a data visualization feature that displays the attendance data in a visually appealing and easy-to-understand format.",
+    techStack: [
+      "Next.js",
+      "Tailwind CSS",
+      "TypeScript",
+      "React",
+      "ShadCN UI",
+      "Next Auth v5",
+      "Prisma",
+    ],
+    links: [
+      // {
+      //   name: "Website",
+      //   href: "#",
+      //   icon: <Globe className="size-3" />,
+      // },
+      // {
+      //   name: "Source",
+      //   href: "#",
+      //   icon: <Github className="size-3" />,
+      // },
+    ],
+    image: "classtag.png",
+  },
+  {
+    name: "LC Buddy (Coming Soon)",
+    duration: "September 2024 - Present",
+    description:
+      "LeetCode buddy is a web app that allows users to compare their leetcode progress with their friends on a weekly basis, allowing them to be more conistent with their leetcode practice.",
+    techStack: [
+      "Next.js",
+      "Tailwind CSS",
+      "TypeScript",
+      "React",
+      "ShadCN UI",
+      "Prisma",
+    ],
+    links: [
+      // {
+      //   name: "Website",
+      //   href: "#",
+      //   icon: <Globe className="size-3" />,
+      // },
+      // {
+      //   name: "Source",
+      //   href: "#",
+      //   icon: <Github className="size-3" />,
+      // },
+    ],
+    image: "lc-buddy.png",
   },
 ];
 
@@ -305,7 +360,7 @@ function DetailedProjectCard(props: ProjectCardProps) {
       <div className="relative h-[160px]">
         <Image
           src={"/projects/" + props.image}
-          alt="Nota Rapida"
+          alt={props.name}
           layout="fill"
           objectFit="cover"
           className="object-center"

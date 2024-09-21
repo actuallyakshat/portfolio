@@ -30,7 +30,11 @@ const dockItems = [
     href: "/projects",
     icon: "/dock-icons/project.png",
   },
-  { name: "Resume", href: "#", icon: "/dock-icons/cv.png" },
+  {
+    name: "Resume",
+    href: "https://drive.google.com/file/d/1M9co8qO7wfBrW47atEO1uZBWJvE0leMK/view?usp=drive_link",
+    icon: "/dock-icons/cv.png",
+  },
   {
     name: "Contact",
     href: "/contact",
@@ -67,7 +71,6 @@ export function HomeDock() {
                 src={item.icon}
                 alt={item.name}
                 width={1080}
-                priority
                 height={1080}
                 className="aspect-square"
               />
