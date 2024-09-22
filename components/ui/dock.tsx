@@ -1,6 +1,6 @@
 "use client";
 
-import React, { PropsWithChildren, useRef } from "react";
+import React, { PropsWithChildren, useRef, useEffect, useState } from "react";
 import { cva, type VariantProps } from "class-variance-authority";
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 
@@ -34,6 +34,17 @@ const Dock = React.forwardRef<HTMLDivElement, DockProps>(
     ref,
   ) => {
     const mouseX = useMotionValue(Infinity);
+    const [isMobile, setIsMobile] = useState(false);
+
+    useEffect(() => {
+      const checkMobile = () => {
+        setIsMobile(window.matchMedia("(hover: none)").matches);
+      };
+
+      checkMobile();
+      window.addEventListener("resize", checkMobile);
+      return () => window.removeEventListener("resize", checkMobile);
+    }, []);
 
     const renderChildren = () => {
       return React.Children.map(children, (child: any) => {
@@ -41,6 +52,7 @@ const Dock = React.forwardRef<HTMLDivElement, DockProps>(
           mouseX: mouseX,
           magnification: magnification,
           distance: distance,
+          isMobile: isMobile,
         });
       });
     };
@@ -48,8 +60,8 @@ const Dock = React.forwardRef<HTMLDivElement, DockProps>(
     return (
       <motion.div
         ref={ref}
-        onMouseMove={(e) => mouseX.set(e.pageX)}
-        onMouseLeave={() => mouseX.set(Infinity)}
+        onMouseMove={(e) => !isMobile && mouseX.set(e.pageX)}
+        onMouseLeave={() => !isMobile && mouseX.set(Infinity)}
         {...props}
         className={cn(dockVariants({ className }), {
           "items-start": direction === "top",
@@ -72,6 +84,7 @@ export interface DockIconProps {
   mouseX?: any;
   className?: string;
   children?: React.ReactNode;
+  isMobile?: boolean;
   props?: PropsWithChildren;
 }
 
@@ -82,13 +95,14 @@ const DockIcon = ({
   mouseX,
   className,
   children,
+  isMobile = false,
   ...props
 }: DockIconProps) => {
   const ref = useRef<HTMLDivElement>(null);
 
   const distanceCalc = useTransform(mouseX, (val: number) => {
+    if (isMobile) return 0;
     const bounds = ref.current?.getBoundingClientRect() ?? { x: 0, width: 0 };
-
     return val - bounds.x - bounds.width / 2;
   });
 
@@ -107,7 +121,7 @@ const DockIcon = ({
   return (
     <motion.div
       ref={ref}
-      style={{ width }}
+      style={{ width: isMobile ? 40 : width }}
       className={cn(
         "flex aspect-square cursor-pointer items-center justify-center rounded-full",
         className,
