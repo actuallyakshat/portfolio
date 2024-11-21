@@ -81,6 +81,38 @@ const tools = [
     tooltip: "Git",
     icon: "git.svg",
   },
+  {
+    tooltip: "Redis",
+    icon: "redis.svg",
+  },
+  {
+    tooltip: "Kafka",
+    icon: "kafka.svg",
+  },
+  {
+    tooltip: "Go",
+    icon: "go.svg",
+  },
+  {
+    tooltip: "Spring Boot",
+    icon: "spring-boot.svg",
+  },
+  {
+    tooltip: "Java",
+    icon: "java.svg",
+  },
+  {
+    tooltip: "hono",
+    icon: "hono.svg",
+  },
+  {
+    tooltip: "redux toolkit",
+    icon: "redux.svg",
+  },
+  {
+    tooltip: "react query",
+    icon: "react-query.svg",
+  },
 ];
 
 import Image from "next/image";
@@ -101,7 +133,7 @@ export default function TechStack() {
               alt={review.tooltip}
               width={60}
               height={60}
-              className="relative z-[1] h-[50px] w-[50px]"
+              className="relative z-[1] size-[55px]"
             />
           ))}
         </Marquee>
@@ -113,7 +145,7 @@ export default function TechStack() {
               alt={review.tooltip}
               width={60}
               height={60}
-              className="h-[50px] w-[50px]"
+              className="size-[55px]"
             />
           ))}
         </Marquee>

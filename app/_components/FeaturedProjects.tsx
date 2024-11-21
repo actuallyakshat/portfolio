@@ -2,6 +2,13 @@ import Link from "next/link";
 
 const PROJECTS = [
   {
+    title: "Zipit",
+    description:
+      "Zipit allows you to seamlessly share files from any device with anyone, anywhere.",
+    url: "https://justzipit.vercel.app",
+    gradient: "bg-gradient-to-tr from-sky-400 to-violet-900",
+  },
+  {
     title: "Nota Rapida",
     description:
       "Nota Rapida is a simple note taking app that wishes to provide a minimalistic note-taking experience.",
@@ -14,13 +21,6 @@ const PROJECTS = [
       "Surf Track is a productivity extension designed to help you monitor and manage your online activity.",
     url: "https://chromewebstore.google.com/detail/surf-track/injkidbnadfahmbcimpejmncnmogeoid",
     gradient: "bg-gradient-to-tr from-gray-500 via-gray-900 to-gray-600",
-  },
-  {
-    title: "Zipit",
-    description:
-      "Zipit allows you to seamlessly share files from any device with anyone, anywhere.",
-    url: "https://justzipit.vercel.app",
-    gradient: "bg-gradient-to-tr from-sky-400 to-violet-900",
   },
   {
     title: "Wishly",

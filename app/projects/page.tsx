@@ -34,7 +34,6 @@ const PROJECTS = [
     ],
     image: "zipit.png",
   },
-
   {
     name: "Wishly",
     duration: "April 2024",
@@ -66,6 +65,37 @@ const PROJECTS = [
     image: "wishly.png",
   },
   {
+    name: "Bingo Bond",
+    duration: "November 2024",
+    description:
+      "A Next.js application that allows you to create a bingo card of plans with your friends so that you can have make plans and enjoy yourself, one plan at a time.",
+    techStack: [
+      "Next.js",
+      "Prisma",
+      "React",
+      "TypeScript",
+      "ShadCN UI",
+      "Cloudinary",
+      "Nodemailer",
+      "Tailwind CSS",
+      "Clerk Auth",
+      "PostgreSQL",
+    ],
+    links: [
+      {
+        name: "Website",
+        href: "https://bingo-bond.vercel.app",
+        icon: <Globe className="size-3" />,
+      },
+      {
+        name: "Source",
+        href: "https://github.com/actuallyakshat/bingo-bond",
+        icon: <Github className="size-3" />,
+      },
+    ],
+    image: "bingo-bond.png",
+  },
+  {
     name: "Nota Rapida",
     duration: "July 2024",
     description:
@@ -91,6 +121,36 @@ const PROJECTS = [
       },
     ],
     image: "nr.png",
+  },
+  {
+    name: "LC Buddy",
+    duration: "September 2024 - October 2024",
+    description:
+      "LeetCode buddy is a web app that allows users to compare their leetcode progress with their friends on a weekly basis, allowing them to be more conistent with their leetcode practice.",
+    techStack: [
+      "Next.js",
+      "Tailwind CSS",
+      "TypeScript",
+      "React",
+      "ShadCN UI",
+      "Prisma",
+      "PostgreSQL",
+      "React Recharts",
+      "Alfa-Leetcode API",
+    ],
+    links: [
+      {
+        name: "Website",
+        href: "https://lc-buddy.vercel.app",
+        icon: <Globe className="size-3" />,
+      },
+      {
+        name: "Source",
+        href: "https://github.com/actuallyakshat/lc-buddy",
+        icon: <Github className="size-3" />,
+      },
+    ],
+    image: "lc-buddy.png",
   },
   {
     name: "Chat GPT Bookmarks",
@@ -290,33 +350,6 @@ const PROJECTS = [
       // },
     ],
     image: "classtag.png",
-  },
-  {
-    name: "LC Buddy (Coming Soon)",
-    duration: "September 2024 - Present",
-    description:
-      "LeetCode buddy is a web app that allows users to compare their leetcode progress with their friends on a weekly basis, allowing them to be more conistent with their leetcode practice.",
-    techStack: [
-      "Next.js",
-      "Tailwind CSS",
-      "TypeScript",
-      "React",
-      "ShadCN UI",
-      "Prisma",
-    ],
-    links: [
-      // {
-      //   name: "Website",
-      //   href: "#",
-      //   icon: <Globe className="size-3" />,
-      // },
-      // {
-      //   name: "Source",
-      //   href: "#",
-      //   icon: <Github className="size-3" />,
-      // },
-    ],
-    image: "lc-buddy.png",
   },
 ];
 
