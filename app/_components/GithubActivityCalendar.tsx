@@ -22,12 +22,7 @@ export default function GithubActivityCalendar() {
           </Link>
         </span>
 
-        <GitHubCalendar
-          username="actuallyakshat"
-          year={currentYear}
-          colorScheme="light"
-          // blockSize={10}
-        />
+        <GitHubCalendar username="actuallyakshat" colorScheme="light" />
       </div>
     </div>
   );

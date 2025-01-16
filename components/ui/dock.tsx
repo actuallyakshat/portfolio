@@ -86,6 +86,7 @@ export interface DockIconProps {
   children?: React.ReactNode;
   isMobile?: boolean;
   props?: PropsWithChildren;
+  href: string;
 }
 
 const DockIcon = ({
@@ -94,11 +95,12 @@ const DockIcon = ({
   distance = DEFAULT_DISTANCE,
   mouseX,
   className,
+  href,
   children,
   isMobile = false,
   ...props
 }: DockIconProps) => {
-  const ref = useRef<HTMLDivElement>(null);
+  const ref = useRef<HTMLAnchorElement>(null);
 
   const distanceCalc = useTransform(mouseX, (val: number) => {
     if (isMobile) return 0;
@@ -119,17 +121,23 @@ const DockIcon = ({
   });
 
   return (
-    <motion.div
+    <motion.a
+      href={href}
       ref={ref}
+      target={
+        href === "/projects" || href === "/" || href === "/contact"
+          ? "_self"
+          : "_blank"
+      }
       style={{ width: isMobile ? 40 : width }}
       className={cn(
-        "flex aspect-square cursor-pointer items-center justify-center rounded-full",
+        "flex aspect-square items-center justify-center rounded-full",
         className,
       )}
       {...props}
     >
       {children}
-    </motion.div>
+    </motion.a>
   );
 };
 

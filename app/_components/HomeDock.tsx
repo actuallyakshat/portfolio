@@ -1,49 +1,57 @@
 import { Dock, DockIcon } from "@/components/ui/dock";
-import Image from "next/image";
+import {
+  GithubIcon,
+  HomeIcon,
+  LinkedinIcon,
+  MailIcon,
+  RocketIcon,
+  SendIcon,
+  SquareUserRound,
+} from "lucide-react";
 import Link from "next/link";
-import React from "react";
 
 interface DockItem {
   name: string;
   href: string;
-  icon: string;
+  icon: React.ReactNode;
 }
 
 const dockItems = [
   {
     name: "Home",
     href: "/",
-    icon: "/dock-icons/home.png",
+    icon: <HomeIcon />,
   },
   {
     name: "Github",
     href: "https://github.com/actuallyakshat",
-    icon: "/dock-icons/github.png",
+    icon: <GithubIcon />,
   },
   {
     name: "Linkedin",
     href: "https://www.linkedin.com/in/actuallyakshat/",
-    icon: "/dock-icons/linkedin.png",
+    icon: <LinkedinIcon />,
   },
   {
     name: "Projects",
     href: "/projects",
-    icon: "/dock-icons/project.png",
+    icon: <RocketIcon />,
   },
   {
     name: "Resume",
     href: "https://drive.google.com/file/d/1-i3eZxEsaIEF8bX0gfJAxnrb6_MNEsDU/view?usp=sharing",
-    icon: "/dock-icons/cv.png",
+    icon: <SquareUserRound />,
   },
   {
     name: "Contact",
     href: "/contact",
-    icon: "/dock-icons/contact.png",
+
+    icon: <SendIcon />,
   },
   {
     name: "Email",
     href: "mailto:akshatdubey0808@gmail.com",
-    icon: "/dock-icons/email.png",
+    icon: <MailIcon />,
   },
 ];
 
@@ -51,30 +59,17 @@ export function HomeDock() {
   return (
     <div className="fixed bottom-10 left-1/2 z-[101] -translate-x-1/2">
       <Dock
-        magnification={65}
+        magnification={60}
         distance={180}
         className="scale-100 border-black/20 bg-white"
       >
         {dockItems.map((item: DockItem) => (
-          <DockIcon key={item.name}>
-            <Link
-              href={item.href}
-              target={
-                item.href === "/projects" ||
-                item.href === "/" ||
-                item.href === "/contact"
-                  ? "_self"
-                  : "_blank"
-              }
-            >
-              <Image
-                src={item.icon}
-                alt={item.name}
-                width={1080}
-                height={1080}
-                className="aspect-square"
-              />
-            </Link>
+          <DockIcon
+            key={item.name}
+            href={item.href}
+            className="cursor-pointer border bg-zinc-100/40 backdrop-blur-lg"
+          >
+            {item.icon}
           </DockIcon>
         ))}
       </Dock>

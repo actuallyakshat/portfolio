@@ -6,7 +6,10 @@ import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
+const url = "https://actuallyakshat.in";
+
 export const metadata: Metadata = {
+  metadataBase: new URL(url),
   title: "Akshat Dubey",
   description: "A portfolio of Akshat Dubey.",
   openGraph: {

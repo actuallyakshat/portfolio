@@ -2,6 +2,13 @@ import Link from "next/link";
 
 const PROJECTS = [
   {
+    title: "CineVault",
+    description:
+      "CineVault: A sleek digital library for movie lovers with collaborative boards, watchlists and more",
+    url: "https://nota-rapida.vercel.app",
+    gradient: "bg-gradient-to-r from-zinc-700 via-slate-800 to-zinc-900",
+  },
+  {
     title: "Zipit",
     description:
       "Zipit allows you to seamlessly share files from any device with anyone, anywhere.",
@@ -9,18 +16,11 @@ const PROJECTS = [
     gradient: "bg-gradient-to-tr from-sky-400 to-violet-900",
   },
   {
-    title: "Nota Rapida",
+    title: "Bingo Bond",
     description:
-      "Nota Rapida is a simple note taking app that wishes to provide a minimalistic note-taking experience.",
-    url: "https://nota-rapida.vercel.app",
-    gradient: "bg-gradient-to-r from-sky-700 via-orange-700 to-violet-900",
-  },
-  {
-    title: "Surf Track",
-    description:
-      "Surf Track is a productivity extension designed to help you monitor and manage your online activity.",
+      "Bingo Bond allows users to collaboratively populate bingo cards with planned activities",
     url: "https://chromewebstore.google.com/detail/surf-track/injkidbnadfahmbcimpejmncnmogeoid",
-    gradient: "bg-gradient-to-tr from-gray-500 via-gray-900 to-gray-600",
+    gradient: "bg-gradient-to-tr from-pink-600 via-rose-800 to-pink-400",
   },
   {
     title: "Wishly",
@@ -33,7 +33,7 @@ const PROJECTS = [
 
 export function FeaturedProjects() {
   return (
-    <div className="relative col-span-6 overflow-hidden rounded-2xl bg-[#2a2a2a] p-6 shadow-xl lg:col-span-3">
+    <div className="relative col-span-6 overflow-hidden rounded-2xl bg-[#1e1e1e] p-6 shadow-xl backdrop-blur-md lg:col-span-3">
       <div className="projects-gradient absolute inset-0 right-0 top-0 z-[1]"></div>
       <div className="flex w-full items-center justify-between">
         <h2 className="relative z-[2] text-2xl font-bold text-white md:text-4xl">
