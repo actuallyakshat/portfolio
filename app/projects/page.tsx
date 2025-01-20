@@ -5,6 +5,37 @@ import Link from "next/link";
 
 const PROJECTS = [
   {
+    name: "Cinevault",
+    duration: "December 2024",
+    description:
+      "A digital library for movies and TV shows, allowing users to save recommendations, track favorites, and write personal reviews. Built with Next.js 14, it features search, watchlists, reviews, and a sleek, responsive UI.",
+    techStack: [
+      "Next.js",
+      "Tailwind CSS",
+      "TypeScript",
+      "TMDB API",
+      "Clerk Auth",
+      "Axios",
+      "Prisma",
+      "PostgreSQL",
+      "Cloudinary",
+    ],
+    links: [
+      {
+        name: "Website",
+        href: "https://cinevault-app.vercel.app",
+        icon: <Globe className="size-3" />,
+      },
+      {
+        name: "Source",
+        href: "https://github.com/actuallyakshat/cinevault",
+        icon: <Github className="size-3" />,
+      },
+    ],
+    image: "cinevault.png",
+  },
+
+  {
     name: "Zipit",
     duration: "April 2024",
     description:
@@ -35,34 +66,29 @@ const PROJECTS = [
     image: "zipit.png",
   },
   {
-    name: "Wishly",
-    duration: "April 2024",
+    name: "Trackfolio",
+    duration: "December 2024",
     description:
-      "A reminder app designed to help you remember special occasions like birthdays and anniversaries by sending automatic email notifications. With customizable reminder frequencies, group email support, and event categorization, Wishly combines convenience with a sleek, minimalist UI for seamless event management.",
+      "A MERN application that helps users efficiently track and manage their job applications, including statuses, interviews, and offers. It provides a simple interface to monitor progress and stay organized throughout the job search process.",
     techStack: [
       "Next.js",
       "Tailwind CSS",
       "TypeScript",
-      "Prisma",
+      "TMDB API",
       "Clerk Auth",
-      "Cron Jobs",
-      "Nodemailer",
+      "Axios",
+      "Prisma",
       "PostgreSQL",
-      "Moment.js",
+      "Cloudinary",
     ],
     links: [
       {
-        name: "Website",
-        href: "https://wishly.vercel.app",
-        icon: <Globe className="size-3" />,
-      },
-      {
         name: "Source",
-        href: "https://github.com/actuallyakshat/wishly",
+        href: "https://github.com/actuallyakshat/trackfolio",
         icon: <Github className="size-3" />,
       },
     ],
-    image: "wishly.png",
+    image: "trackfolio.png",
   },
   {
     name: "Bingo Bond",
@@ -96,33 +122,6 @@ const PROJECTS = [
     image: "bingo-bond.png",
   },
   {
-    name: "Nota Rapida",
-    duration: "July 2024",
-    description:
-      "A minimalist, visually appealing note-taking app designed to replace the complexity of Notion, improving daily workflow with simplicity and ease of use. It also features a desktop variant for Windows, built using Electron.js for a native application feel.",
-    techStack: [
-      "Next.js",
-      "Tailwind CSS",
-      "TypeScript",
-      "PostgreSQL",
-      "BlockNoteJS",
-      "Prisma",
-    ],
-    links: [
-      {
-        name: "Website",
-        href: "https://nota-rapida.vercel.app",
-        icon: <Globe className="size-3" />,
-      },
-      {
-        name: "Source",
-        href: "https://github.com/actuallyakshat/nota-rapida",
-        icon: <Github className="size-3" />,
-      },
-    ],
-    image: "nr.png",
-  },
-  {
     name: "LC Buddy",
     duration: "September 2024 - October 2024",
     description:
@@ -153,6 +152,33 @@ const PROJECTS = [
     image: "lc-buddy.png",
   },
   {
+    name: "Nota Rapida",
+    duration: "July 2024",
+    description:
+      "A minimalist, visually appealing note-taking app designed to replace the complexity of Notion, improving daily workflow with simplicity and ease of use. It also features a desktop variant for Windows, built using Electron.js for a native application feel.",
+    techStack: [
+      "Next.js",
+      "Tailwind CSS",
+      "TypeScript",
+      "PostgreSQL",
+      "BlockNoteJS",
+      "Prisma",
+    ],
+    links: [
+      {
+        name: "Website",
+        href: "https://nota-rapida.vercel.app",
+        icon: <Globe className="size-3" />,
+      },
+      {
+        name: "Source",
+        href: "https://github.com/actuallyakshat/nota-rapida",
+        icon: <Github className="size-3" />,
+      },
+    ],
+    image: "nr.png",
+  },
+  {
     name: "Chat GPT Bookmarks",
     duration: "July 2024",
     description:
@@ -171,6 +197,36 @@ const PROJECTS = [
       },
     ],
     image: "chatgptbookmarks.png",
+  },
+  {
+    name: "Wishly",
+    duration: "April 2024",
+    description:
+      "A reminder app designed to help you remember special occasions like birthdays and anniversaries by sending automatic email notifications. With customizable reminder frequencies, group email support, and event categorization, Wishly combines convenience with a sleek, minimalist UI for seamless event management.",
+    techStack: [
+      "Next.js",
+      "Tailwind CSS",
+      "TypeScript",
+      "Prisma",
+      "Clerk Auth",
+      "Cron Jobs",
+      "Nodemailer",
+      "PostgreSQL",
+      "Moment.js",
+    ],
+    links: [
+      {
+        name: "Website",
+        href: "https://wishly.vercel.app",
+        icon: <Globe className="size-3" />,
+      },
+      {
+        name: "Source",
+        href: "https://github.com/actuallyakshat/wishly",
+        icon: <Github className="size-3" />,
+      },
+    ],
+    image: "wishly.png",
   },
   {
     name: "Surf Track",
@@ -192,35 +248,7 @@ const PROJECTS = [
     ],
     image: "surftrack.png",
   },
-  {
-    name: "Cinevault",
-    duration: "March 2024",
-    description:
-      "A digital library for movies and TV shows, allowing users to save recommendations, track favorites, and write personal reviews. Built with Next.js 14, it features search, watchlists, reviews, and a sleek, responsive UI.",
-    techStack: [
-      "Next.js",
-      "Tailwind CSS",
-      "TypeScript",
-      "TMDB API",
-      "Clerk Auth",
-      "Axios",
-      "Prisma",
-      "PostgreSQL",
-    ],
-    links: [
-      {
-        name: "Website",
-        href: "https://cinevault-app.vercel.app",
-        icon: <Globe className="size-3" />,
-      },
-      {
-        name: "Source",
-        href: "https://github.com/actuallyakshat/cinevault",
-        icon: <Github className="size-3" />,
-      },
-    ],
-    image: "cinevault.png",
-  },
+
   {
     name: "Movie Mate",
     duration: "February 2024",
@@ -387,16 +415,14 @@ interface ProjectCardProps {
 }
 
 function DetailedProjectCard(props: ProjectCardProps) {
-  console.log(props.techStack);
   return (
     <div className="col-span-1 flex flex-col overflow-hidden rounded-3xl bg-white">
       <div className="relative h-[160px]">
         <Image
           src={"/projects/" + props.image}
           alt={props.name}
-          layout="fill"
-          objectFit="cover"
-          className="object-center"
+          fill
+          className="object-cover object-center"
         ></Image>
       </div>
       <div className="flex flex-1 flex-col justify-between p-4">

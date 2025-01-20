@@ -8,8 +8,7 @@ export function IntroCard() {
           src="/me.jpeg"
           alt="Akshat Dubey"
           priority
-          layout="fill"
-          objectFit="cover"
+          fill
           className="aspect-square rounded-xl object-cover object-[center_50%] xl:object-[center_80%]"
         />
       </div>

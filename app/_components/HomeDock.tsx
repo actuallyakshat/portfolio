@@ -64,11 +64,7 @@ export function HomeDock() {
         className="scale-100 border-black/20 bg-white"
       >
         {dockItems.map((item: DockItem) => (
-          <DockIcon
-            key={item.name}
-            href={item.href}
-            className="cursor-pointer border bg-zinc-100/40 backdrop-blur-lg"
-          >
+          <DockIcon key={item.name} href={item.href} className="cursor-pointer">
             {item.icon}
           </DockIcon>
         ))}

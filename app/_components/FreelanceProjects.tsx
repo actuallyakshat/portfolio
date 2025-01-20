@@ -51,8 +51,7 @@ function FreelanceProjectCard({
       <Image
         src={image}
         alt="Sai Logistics"
-        layout="fill"
-        objectFit="cover"
+        fill
         className="aspect-square object-cover object-top blur-[0.5px]"
       />
       <div className="absolute inset-0 flex items-end justify-start bg-black/10 p-4 text-2xl font-semibold text-white transition-colors group-hover:bg-black/40">

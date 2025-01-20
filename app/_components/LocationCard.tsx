@@ -6,10 +6,9 @@ export function LocationCard() {
       <Image
         src={"/location.jpeg"}
         alt="location"
-        layout="fill"
-        objectFit="cover"
+        fill
         priority
-        className="size-full"
+        className="size-full object-cover"
       />
     </div>
   );

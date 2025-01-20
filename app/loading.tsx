@@ -1,5 +1,6 @@
-import { Loader, Loader2Icon } from "lucide-react";
-import React from "react";
+"use client";
+
+import { Loader2Icon } from "lucide-react";
 
 export default function Loading() {
   return (

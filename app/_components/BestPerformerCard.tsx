@@ -13,8 +13,7 @@ export function BestPerformerCard() {
       <Image
         src={"/bestperformer.jpeg"}
         alt="Best Performer in SCSET Award"
-        layout="fill"
-        objectFit="cover"
+        fill
         className="aspect-square object-cover object-[center_35%]"
       />
     </Link>

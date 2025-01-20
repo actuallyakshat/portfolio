@@ -25,8 +25,7 @@ export function SetupImagesCarousel() {
               quality={60}
               src={"/setup/" + (i + 1) + ".jpg"}
               alt="setup image"
-              objectFit="cover"
-              layout="fill"
+              fill
               className="size-full bg-muted object-cover object-center"
             />
           </CarouselItem>
