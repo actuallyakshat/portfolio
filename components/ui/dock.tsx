@@ -131,8 +131,6 @@ const DockIcon = ({
     damping: 12,
   });
 
-  console.log("TOOLTIP", tooltip);
-
   return (
     <Tooltip>
       <TooltipTrigger asChild>
