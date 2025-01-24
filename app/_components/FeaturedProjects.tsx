@@ -5,28 +5,28 @@ const PROJECTS = [
     title: "CineVault",
     description:
       "CineVault: A sleek digital library for movie lovers with collaborative boards, watchlists and more",
-    url: "https://nota-rapida.vercel.app",
+    url: "https://cinevault.actuallyakshat.in",
     gradient: "bg-gradient-to-r from-zinc-700 via-slate-800 to-zinc-900",
   },
   {
     title: "Zipit",
     description:
       "Zipit allows you to seamlessly share files from any device with anyone, anywhere.",
-    url: "https://justzipit.vercel.app",
+    url: "https://zipit.actuallyakshat.in",
     gradient: "bg-gradient-to-tr from-sky-400 to-violet-900",
   },
   {
     title: "Bingo Bond",
     description:
       "Bingo Bond allows users to collaboratively populate bingo cards with planned activities",
-    url: "https://chromewebstore.google.com/detail/surf-track/injkidbnadfahmbcimpejmncnmogeoid",
+    url: "https://bingobond.actuallyakshat.in",
     gradient: "bg-gradient-to-tr from-pink-600 via-rose-800 to-pink-400",
   },
   {
     title: "Wishly",
     description:
       "Wishly helps you set reminder for those special days you can't afford to forget.",
-    url: "https://wishly.vercel.app",
+    url: "https://wishly.actuallyakshat.in",
     gradient: "bg-gradient-to-b from-lime-600 via-green-800 to-teal-900",
   },
 ];

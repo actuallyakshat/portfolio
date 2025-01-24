@@ -1,4 +1,7 @@
+import { ShinyButton } from "@/components/ui/shinnybutton";
+import { ArrowRightIcon } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 export function IntroCard() {
   return (
@@ -26,6 +29,11 @@ export function IntroCard() {
           development, particularly React and Next.js, and I am always looking
           for new challenges to push my skills to the next level.
         </p>
+        <Link href="/projects">
+          <ShinyButton className="mt-4 flex items-center">
+            View Projects <ArrowRightIcon className="size-4" />
+          </ShinyButton>
+        </Link>
       </div>
     </div>
   );

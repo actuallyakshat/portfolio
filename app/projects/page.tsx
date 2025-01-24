@@ -23,7 +23,7 @@ const PROJECTS = [
     links: [
       {
         name: "Website",
-        href: "https://cinevault-app.vercel.app",
+        href: "https://cinevault-app.actuallyakshat.in",
         icon: <Globe className="size-3" />,
       },
       {
@@ -54,7 +54,7 @@ const PROJECTS = [
     links: [
       {
         name: "Website",
-        href: "https://justzipit.vercel.app",
+        href: "https://zipit.actuallyakshat.in",
         icon: <Globe className="size-3" />,
       },
       {
@@ -110,7 +110,7 @@ const PROJECTS = [
     links: [
       {
         name: "Website",
-        href: "https://bingo-bond.vercel.app",
+        href: "https://bingo-bond.actuallyakshat.in",
         icon: <Globe className="size-3" />,
       },
       {
@@ -140,7 +140,7 @@ const PROJECTS = [
     links: [
       {
         name: "Website",
-        href: "https://lc-buddy.vercel.app",
+        href: "https://lcbuddy.actuallyakshat.in",
         icon: <Globe className="size-3" />,
       },
       {
@@ -167,7 +167,7 @@ const PROJECTS = [
     links: [
       {
         name: "Website",
-        href: "https://nota-rapida.vercel.app",
+        href: "https://notarapida.actuallyakshat.in/",
         icon: <Globe className="size-3" />,
       },
       {
@@ -217,7 +217,7 @@ const PROJECTS = [
     links: [
       {
         name: "Website",
-        href: "https://wishly.vercel.app",
+        href: "https://wishly.actuallyakshat.in",
         icon: <Globe className="size-3" />,
       },
       {

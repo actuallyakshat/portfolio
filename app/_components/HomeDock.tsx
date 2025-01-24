@@ -39,7 +39,7 @@ const dockItems = [
   },
   {
     name: "Resume",
-    href: "https://drive.google.com/file/d/1-i3eZxEsaIEF8bX0gfJAxnrb6_MNEsDU/view?usp=sharing",
+    href: "https://drive.google.com/file/d/1w7koesdJhXb8Zt4TeEOPnq4eHoSevmh8/view?usp=sharing",
     icon: <SquareUserRound />,
   },
   {
