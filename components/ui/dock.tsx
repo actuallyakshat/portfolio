@@ -4,6 +4,13 @@ import React, { PropsWithChildren, useRef, useEffect, useState } from "react";
 import { cva, type VariantProps } from "class-variance-authority";
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
+
 import { cn } from "@/lib/utils";
 
 export interface DockProps extends VariantProps<typeof dockVariants> {
@@ -58,19 +65,21 @@ const Dock = React.forwardRef<HTMLDivElement, DockProps>(
     };
 
     return (
-      <motion.div
-        ref={ref}
-        onMouseMove={(e) => !isMobile && mouseX.set(e.pageX)}
-        onMouseLeave={() => !isMobile && mouseX.set(Infinity)}
-        {...props}
-        className={cn(dockVariants({ className }), {
-          "items-start": direction === "top",
-          "items-center": direction === "middle",
-          "items-end": direction === "bottom",
-        })}
-      >
-        {renderChildren()}
-      </motion.div>
+      <TooltipProvider>
+        <motion.div
+          ref={ref}
+          onMouseMove={(e) => !isMobile && mouseX.set(e.pageX)}
+          onMouseLeave={() => !isMobile && mouseX.set(Infinity)}
+          {...props}
+          className={cn(dockVariants({ className }), {
+            "items-start": direction === "top",
+            "items-center": direction === "middle",
+            "items-end": direction === "bottom",
+          })}
+        >
+          {renderChildren()}
+        </motion.div>
+      </TooltipProvider>
     );
   },
 );
@@ -87,6 +96,7 @@ export interface DockIconProps {
   isMobile?: boolean;
   props?: PropsWithChildren;
   href: string;
+  tooltip?: string;
 }
 
 const DockIcon = ({
@@ -98,6 +108,7 @@ const DockIcon = ({
   href,
   children,
   isMobile = false,
+  tooltip,
   ...props
 }: DockIconProps) => {
   const ref = useRef<HTMLAnchorElement>(null);
@@ -120,24 +131,33 @@ const DockIcon = ({
     damping: 12,
   });
 
+  console.log("TOOLTIP", tooltip);
+
   return (
-    <motion.a
-      href={href}
-      ref={ref}
-      target={
-        href === "/projects" || href === "/" || href === "/contact"
-          ? "_self"
-          : "_blank"
-      }
-      style={{ width: isMobile ? 40 : width }}
-      className={cn(
-        "flex aspect-square items-center justify-center rounded-full",
-        className,
-      )}
-      {...props}
-    >
-      {children}
-    </motion.a>
+    <Tooltip>
+      <TooltipTrigger asChild>
+        <motion.a
+          href={href}
+          ref={ref}
+          target={
+            href === "/projects" || href === "/" || href === "/contact"
+              ? "_self"
+              : "_blank"
+          }
+          style={{ width: isMobile ? 40 : width }}
+          className={cn(
+            "flex aspect-square items-center justify-center rounded-full",
+            className,
+          )}
+          {...props}
+        >
+          {children}
+        </motion.a>
+      </TooltipTrigger>
+      <TooltipContent>
+        <p>{tooltip}</p>
+      </TooltipContent>
+    </Tooltip>
   );
 };
 

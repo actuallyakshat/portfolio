@@ -1,5 +1,12 @@
 import { Dock, DockIcon } from "@/components/ui/dock";
 import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
+
+import {
   GithubIcon,
   HomeIcon,
   LinkedinIcon,
@@ -8,7 +15,6 @@ import {
   SendIcon,
   SquareUserRound,
 } from "lucide-react";
-import Link from "next/link";
 
 interface DockItem {
   name: string;
@@ -64,7 +70,12 @@ export function HomeDock() {
         className="scale-100 border-black/20 bg-white"
       >
         {dockItems.map((item: DockItem) => (
-          <DockIcon key={item.name} href={item.href} className="cursor-pointer">
+          <DockIcon
+            key={item.name}
+            href={item.href}
+            tooltip={item.name}
+            className="cursor-pointer"
+          >
             {item.icon}
           </DockIcon>
         ))}
