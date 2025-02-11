@@ -74,6 +74,8 @@ export function ContactForm() {
         console.error("Error sending email:", error);
         setIsSubmitting(false);
         toast.error("Something went wrong!", { id: "sending-message" });
+      } finally {
+        setIsSubmitting(false);
       }
     } else {
       console.log("Validation failed");

@@ -5,6 +5,35 @@ import Link from "next/link";
 
 const PROJECTS = [
   {
+    name: "Multiplayer Wordle",
+    duration: "December 2024 - January 2025",
+    description:
+      "A multiplayer varient of the popular Wordle game by The New York Times. Built with Go, it allows players to compete against each other in real-time, enhancing the gameplay experience and fostering friendly competition.",
+    techStack: [
+      "Go",
+      "Go Fiber",
+      "GORM",
+      "Websockets",
+      "PostgreSQL",
+      "React",
+      "Tailwind CSS",
+      "Railway",
+    ],
+    links: [
+      {
+        name: "Website",
+        href: "https://wordle.actuallyakshat.in",
+        icon: <Globe className="size-3" />,
+      },
+      {
+        name: "Source",
+        href: "https://github.com/actuallyakshat/multiplayer-wordle",
+        icon: <Github className="size-3" />,
+      },
+    ],
+    image: "multiplayer wordle.jpg",
+  },
+  {
     name: "Cinevault",
     duration: "December 2024",
     description:
@@ -23,7 +52,7 @@ const PROJECTS = [
     links: [
       {
         name: "Website",
-        href: "https://cinevault-app.actuallyakshat.in",
+        href: "https://cinevault.actuallyakshat.in",
         icon: <Globe className="size-3" />,
       },
       {
@@ -34,7 +63,6 @@ const PROJECTS = [
     ],
     image: "cinevault.png",
   },
-
   {
     name: "Zipit",
     duration: "April 2024",
@@ -66,60 +94,30 @@ const PROJECTS = [
     image: "zipit.png",
   },
   {
-    name: "Trackfolio",
-    duration: "December 2024",
+    name: "Surf Track",
+    duration: "July 2024",
     description:
-      "A MERN application that helps users efficiently track and manage their job applications, including statuses, interviews, and offers. It provides a simple interface to monitor progress and stay organized throughout the job search process.",
+      "Surf Track is a productivity extension designed to help you monitor and manage your online activity. By tracking the time you spend on various websites, Surf Track provides valuable insights into your browsing habits, empowering you to make informed decisions about how you spend your time online.",
     techStack: [
-      "Next.js",
-      "Tailwind CSS",
+      "Chrome Extension",
       "TypeScript",
-      "TMDB API",
-      "Clerk Auth",
-      "Axios",
-      "Prisma",
-      "PostgreSQL",
-      "Cloudinary",
-    ],
-    links: [
-      {
-        name: "Source",
-        href: "https://github.com/actuallyakshat/trackfolio",
-        icon: <Github className="size-3" />,
-      },
-    ],
-    image: "trackfolio.png",
-  },
-  {
-    name: "Bingo Bond",
-    duration: "November 2024",
-    description:
-      "A Next.js application that allows you to create a bingo card of plans with your friends so that you can have make plans and enjoy yourself, one plan at a time.",
-    techStack: [
-      "Next.js",
-      "Prisma",
       "React",
-      "TypeScript",
-      "ShadCN UI",
-      "Cloudinary",
-      "Nodemailer",
       "Tailwind CSS",
-      "Clerk Auth",
-      "PostgreSQL",
+      "ShadCN UI",
     ],
     links: [
       {
         name: "Website",
-        href: "https://bingo-bond.actuallyakshat.in",
+        href: "https://chromewebstore.google.com/detail/surf-track/injkidbnadfahmbcimpejmncnmogeoid",
         icon: <Globe className="size-3" />,
       },
       {
         name: "Source",
-        href: "https://github.com/actuallyakshat/bingo-bond",
+        href: "#",
         icon: <Github className="size-3" />,
       },
     ],
-    image: "bingo-bond.png",
+    image: "surf track.png",
   },
   {
     name: "LC Buddy",
@@ -152,6 +150,37 @@ const PROJECTS = [
     image: "lc-buddy.png",
   },
   {
+    name: "Bingo Bond",
+    duration: "November 2024",
+    description:
+      "A Next.js application that allows you to create a bingo card of plans with your friends so that you can have make plans and enjoy yourself, one plan at a time.",
+    techStack: [
+      "Next.js",
+      "Prisma",
+      "React",
+      "TypeScript",
+      "ShadCN UI",
+      "Cloudinary",
+      "Nodemailer",
+      "Tailwind CSS",
+      "Clerk Auth",
+      "PostgreSQL",
+    ],
+    links: [
+      {
+        name: "Website",
+        href: "https://bingobond.actuallyakshat.in/",
+        icon: <Globe className="size-3" />,
+      },
+      {
+        name: "Source",
+        href: "https://github.com/actuallyakshat/bingo-bond",
+        icon: <Github className="size-3" />,
+      },
+    ],
+    image: "bingo-bond.png",
+  },
+  {
     name: "Nota Rapida",
     duration: "July 2024",
     description:
@@ -178,12 +207,71 @@ const PROJECTS = [
     ],
     image: "nr.png",
   },
+
+  {
+    name: "Realtime Todos",
+    duration: "January 2025",
+    description:
+      "Realtime Todos is a web application that allows users to create, reorder and delete tasks in real-time. Built with Go, it provides a seamless and responsive user interface, enabling users to manage their tasks efficiently.",
+    techStack: [
+      "Go",
+      "Go Fiber",
+      "GORM",
+      "Websockets",
+      "PostgreSQL",
+      "React",
+      "Tailwind CSS",
+      "Railway",
+    ],
+    links: [
+      {
+        name: "Website",
+        href: "https://todos.actuallyakshat.in",
+        icon: <Globe className="size-3" />,
+      },
+      {
+        name: "Source",
+        href: "https://github.com/actuallyakshat/realtime-todos",
+        icon: <Github className="size-3" />,
+      },
+    ],
+    image: "realtime-todos.jpg",
+  },
+  {
+    name: "Trackfolio",
+    duration: "December 2024",
+    description:
+      "A MERN application that helps users efficiently track and manage their job applications, including statuses, interviews, and offers. It also takes help of redis for implementing rate-limiting and quick user lookups. Implementing a cookie + JWT based authentication with refresh tokens helped me learn about robust authentication methods.",
+    techStack: [
+      "Express.js",
+      "Redis",
+      "Mongo DB",
+      "Mongoose",
+      "Cloudinary",
+      "JWT",
+    ],
+    links: [
+      {
+        name: "Source",
+        href: "https://github.com/actuallyakshat/trackfolio",
+        icon: <Github className="size-3" />,
+      },
+    ],
+    image: "trackfolio.png",
+  },
+
   {
     name: "Chat GPT Bookmarks",
     duration: "July 2024",
     description:
       "A Chrome extension that allows users to bookmark and easily access important ChatGPT conversations, ensuring key discussions are never lost among other chats. Built in just an hour to solve the frustration of losing track of valuable conversations.",
-    techStack: ["Plasmo", "Tailwind CSS", "TypeScript", "React"],
+    techStack: [
+      "Plasmo",
+      "Tailwind CSS",
+      "TypeScript",
+      "React",
+      "Chrome Extension",
+    ],
     links: [
       {
         name: "Website",
@@ -198,6 +286,7 @@ const PROJECTS = [
     ],
     image: "chatgptbookmarks.png",
   },
+
   {
     name: "Wishly",
     duration: "April 2024",
@@ -227,26 +316,6 @@ const PROJECTS = [
       },
     ],
     image: "wishly.png",
-  },
-  {
-    name: "Surf Track",
-    duration: "July 2024",
-    description:
-      "Surf Track is a productivity extension designed to help you monitor and manage your online activity. By tracking the time you spend on various websites, Surf Track provides valuable insights into your browsing habits, empowering you to make informed decisions about how you spend your time online.",
-    techStack: ["Plasmo", "Tailwind CSS", "TypeScript", "React"],
-    links: [
-      {
-        name: "Website",
-        href: "https://chromewebstore.google.com/detail/surf-track/injkidbnadfahmbcimpejmncnmogeoid",
-        icon: <Globe className="size-3" />,
-      },
-      {
-        name: "Source",
-        href: "#",
-        icon: <Github className="size-3" />,
-      },
-    ],
-    image: "surftrack.png",
   },
 
   {
@@ -352,32 +421,24 @@ const PROJECTS = [
     image: "srk-gallery.png",
   },
   {
-    name: "Class Tag (Coming Soon)",
-    duration: "August 2024 - Present",
+    name: "Your Live Age",
+    duration: "August 2024",
     description:
-      "A web app that allows teachers to create and manage attendance for their students. This project aims to solve the problem of students marking proxy attedance for students who are not present in the classroom. It has a data visualization feature that displays the attendance data in a visually appealing and easy-to-understand format.",
-    techStack: [
-      "Next.js",
-      "Tailwind CSS",
-      "TypeScript",
-      "React",
-      "ShadCN UI",
-      "Next Auth v5",
-      "Prisma",
-    ],
+      "A simple web page that shows your age in real-time, updated every second.",
+    techStack: ["Next.js"],
     links: [
-      // {
-      //   name: "Website",
-      //   href: "#",
-      //   icon: <Globe className="size-3" />,
-      // },
-      // {
-      //   name: "Source",
-      //   href: "#",
-      //   icon: <Github className="size-3" />,
-      // },
+      {
+        name: "Website",
+        href: "https://your-live-age.vercel.app/",
+        icon: <Globe className="size-3" />,
+      },
+      {
+        name: "Source",
+        href: "https://github.com/actuallyakshat/live-age",
+        icon: <Github className="size-3" />,
+      },
     ],
-    image: "classtag.png",
+    image: "yourliveage.jpg",
   },
 ];
 
