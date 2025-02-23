@@ -6,13 +6,13 @@ export function cn(...inputs: ClassValue[]) {
 }
 
 export function getCurrentTime(): string {
-  const now = new Date();
+  const now = new Date(Date.now());
   const hours = now.getHours().toString().padStart(2, "0");
   const minutes = now.getMinutes().toString().padStart(2, "0");
   return `${hours}:${minutes}`;
 }
 
-export function formatDate(date: Date = new Date()): string {
+export function formatDate(date: Date = new Date(Date.now())): string {
   const options: Intl.DateTimeFormatOptions = {
     month: "short",
     day: "numeric",
