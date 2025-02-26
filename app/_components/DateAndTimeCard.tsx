@@ -1,14 +1,23 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import { formatDate, getCurrentDay } from "@/lib/utils";
 
 export function DateAndTimeCard() {
+  const [currentDate, setCurrentDate] = useState("");
+  const [currentDay, setCurrentDay] = useState("");
+
+  useEffect(() => {
+    setCurrentDate(formatDate());
+    setCurrentDay(getCurrentDay());
+  }, []);
+
   return (
     <div className="col-span-2 flex h-fit gap-6 rounded-2xl bg-white bg-gradient-to-tr from-pink-600/20 via-teal-900/50 to-teal-700 p-4 shadow-xl backdrop-blur-3xl">
       <div className="flex w-fit flex-[2] flex-col gap-10 rounded-2xl bg-gradient-to-tr from-rose-400/30 via-teal-900 to-teal-700 p-4 text-white">
-        <h3 className="text-3xl font-semibold">{formatDate()}</h3>
+        <h3 className="text-3xl font-semibold">{currentDate}</h3>
         <span>
-          <h6 className="text-sm font-extralight text-muted">
-            {getCurrentDay()}
-          </h6>
+          <h6 className="text-sm font-extralight text-muted">{currentDay}</h6>
           <h3 className="font-medium">2 Events</h3>
         </span>
       </div>
