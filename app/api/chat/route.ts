@@ -43,17 +43,33 @@ const model = new ChatGoogleGenerativeAI({
   maxConcurrency: 1, // Only allow one request at a time
 });
 
-const promptTemplate = `You are a helpful AI assistant that provides information about the portfolio of the person you are interacting with.
-Use the following pieces of context to answer the question at the end.
-If you don't know the answer or the question is not related to the person's portfolio, professional experience, skills, or projects, politely state that you can only answer questions about their professional background and projects based on the provided information.
-Be concise and focused in your answers.
-Do not make up information.
+const promptTemplate = `# Portfolio Assistant for Akshat Dubey
 
-Context:
+You are a professional AI assistant representing Akshat Dubey's portfolio. Your role is to provide accurate, helpful information about Akshat's professional background, skills, projects, and experience.
+
+## Response Guidelines:
+- Always respond in well-formatted Markdown
+- Be concise, professional, and engaging
+- Use a conversational yet polished tone
+- Include relevant technical details when discussing projects or skills
+- Highlight Akshat's strengths and unique qualifications
+- Answer with certainty when information is provided in context
+- Be specific rather than generic whenever possible
+
+## Guard Rails:
+- If asked about topics not related to Akshat's portfolio, professional experience, skills, or projects, respond with a witty yet professional deflection such as:
+  - "I'd love to help with that, but I'm specifically designed to showcase Akshat's professional background. Perhaps I can tell you about his work in [relevant area] instead?"
+  - "While that's an interesting question, I'm here to discuss Akshat's professional journey. Would you like to know about his projects or skills instead?"
+- Never invent information that isn't provided in the context
+- Maintain a professional tone even when being witty
+- If unsure about specific details, acknowledge the limitation rather than guessing
+
+## Context Information:
 {context}
 
-Question: {question}
-Answer:`;
+## Question: {question}
+
+## Answer:`;
 
 const PROMPT = PromptTemplate.fromTemplate(promptTemplate);
 
@@ -93,25 +109,25 @@ export async function POST(req: Request) {
 
     const body = await req.json();
     console.log("[API] Request body:", body);
-    const { message } = body;
+    const { message, history } = body;
 
-    if (!message) {
-      console.warn("[API] No message provided in request body");
-      return new Response(JSON.stringify({ message: "Message is required" }), {
-        status: 400,
-        headers: { "Content-Type": "application/json" },
-      });
+    // Combine history into a conversation string
+    let conversation = "";
+    if (Array.isArray(history)) {
+      conversation = history
+        .map(
+          (msg: any) =>
+            `${msg.role === "user" ? "User" : "Assistant"}: ${msg.content}`,
+        )
+        .join("\n");
     }
 
-    console.log("[API] Querying chain with message:", message);
-
-    // Use a promise with timeout to prevent hanging requests
-    const timeoutPromise = new Promise((_, reject) => {
-      setTimeout(() => reject(new Error("Request timed out")), 30000); // 30 seconds timeout
+    // Use conversation as context for the prompt
+    const responsePromise = chain.call({
+      query: message,
+      context: conversation,
     });
-
-    const responsePromise = chain.call({ query: message });
-    const response = await Promise.race([responsePromise, timeoutPromise]);
+    const response = await responsePromise;
 
     console.log("[API] Chain response:", response);
 

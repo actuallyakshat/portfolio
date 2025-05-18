@@ -5,6 +5,7 @@ import {
   HomeIcon,
   LinkedinIcon,
   MailIcon,
+  MessageCircleIcon,
   RocketIcon,
   SendIcon,
   SquareUserRound,
@@ -27,6 +28,11 @@ const dockItems = [
     name: "Github",
     href: "https://github.com/actuallyakshat",
     icon: <GithubIcon />,
+  },
+  {
+    name: "Chat",
+    href: "/chat",
+    icon: <MessageCircleIcon />,
   },
   {
     name: "Linkedin",

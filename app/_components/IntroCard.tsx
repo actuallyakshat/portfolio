@@ -29,11 +29,18 @@ export function IntroCard() {
           development, particularly React and Next.js, and I am always looking
           for new challenges to push my skills to the next level.
         </p>
-        <Link href="/projects">
-          <ShinyButton className="mt-4 flex items-center">
-            View Projects <ArrowRightIcon className="size-4" />
-          </ShinyButton>
-        </Link>
+        <div className="flex flex-wrap items-center gap-2">
+          <Link href="/projects">
+            <ShinyButton className="mt-4 flex items-center">
+              View Projects <ArrowRightIcon className="size-4" />
+            </ShinyButton>
+          </Link>
+          <Link href="/chat">
+            <ShinyButton className="mt-4 flex items-center">
+              Chat <ArrowRightIcon className="size-4" />
+            </ShinyButton>
+          </Link>
+        </div>
       </div>
     </div>
   );
