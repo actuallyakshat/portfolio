@@ -1,11 +1,5 @@
+"use client";
 import { Dock, DockIcon } from "@/components/ui/dock";
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from "@/components/ui/tooltip";
-
 import {
   GithubIcon,
   HomeIcon,
@@ -15,6 +9,7 @@ import {
   SendIcon,
   SquareUserRound,
 } from "lucide-react";
+import { usePathname } from "next/navigation";
 
 interface DockItem {
   name: string;
@@ -62,6 +57,9 @@ const dockItems = [
 ];
 
 export function HomeDock() {
+  const pathname = usePathname();
+  if (pathname === "/chat") return null;
+
   return (
     <div className="fixed bottom-10 left-1/2 z-[101] -translate-x-1/2">
       <Dock
