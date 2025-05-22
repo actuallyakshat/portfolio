@@ -1,7 +1,9 @@
 import { AgeCard } from "./_components/AgeCard";
 import { BestPerformerCard } from "./_components/BestPerformerCard";
 import { BounceBackCard } from "./_components/BounceBackCard";
+import { ChatCard } from "./_components/ChatCard";
 import { DateAndTimeCard } from "./_components/DateAndTimeCard";
+import { ExperiencesCard } from "./_components/ExperiencesCard";
 import { FeaturedProjects } from "./_components/FeaturedProjects";
 import { FreelanceProjects } from "./_components/FreelanceProjects";
 import { GitHubCalendarAndCarousel } from "./_components/GitHubCalendarAndCarousel";
@@ -32,7 +34,14 @@ export default function Home() {
           <BounceBackCard />
           <BestPerformerCard />
         </div>
-        <FeaturedProjects />
+        <div className="col-span-3 flex h-full flex-col gap-2">
+          {/* The empty div is removed */}
+          <div className="flex flex-1 gap-2">
+            <ExperiencesCard />
+            <ChatCard />
+          </div>
+          <FeaturedProjects />
+        </div>
       </div>
     </main>
   );

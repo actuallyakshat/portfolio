@@ -1,6 +1,7 @@
 "use client";
 import { Dock, DockIcon } from "@/components/ui/dock";
 import {
+  BriefcaseBusinessIcon,
   GithubIcon,
   HomeIcon,
   LinkedinIcon,
@@ -25,14 +26,19 @@ const dockItems = [
     icon: <HomeIcon />,
   },
   {
-    name: "Github",
-    href: "https://github.com/actuallyakshat",
-    icon: <GithubIcon />,
+    name: "Experience",
+    href: "/experience",
+    icon: <BriefcaseBusinessIcon />,
   },
   {
     name: "Chat",
     href: "/chat",
     icon: <MessageCircleIcon />,
+  },
+  {
+    name: "Github",
+    href: "https://github.com/actuallyakshat",
+    icon: <GithubIcon />,
   },
   {
     name: "Linkedin",

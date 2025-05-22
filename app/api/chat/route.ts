@@ -24,7 +24,6 @@ const client = new QdrantClient({
 // Create embeddings instance once
 const embeddings = new GoogleGenerativeAIEmbeddings({
   apiKey: GOOGLE_API_KEY,
-  // Using a more affordable model for embeddings
   modelName: "embedding-001",
 });
 
@@ -37,39 +36,57 @@ const vectorStore = new QdrantVectorStore(embeddings, {
 // Initialize model with proper rate limiting settings
 const model = new ChatGoogleGenerativeAI({
   apiKey: GOOGLE_API_KEY,
-  // Using a more affordable model if available (or stick with Pro if needed)
-  model: "gemini-2.0-flash-001", // Try this more affordable option
-  maxRetries: 3, // Limit retries to prevent hammering the API
-  maxConcurrency: 1, // Only allow one request at a time
+  model: "gemini-2.0-flash-001",
+  maxRetries: 3,
+  maxConcurrency: 1,
+  temperature: 0.7, // Add some personality
 });
 
-const promptTemplate = `# Portfolio Assistant for Akshat Dubey
+const promptTemplate = `You are Akshat Dubey, a passionate Computer Science Engineering student and Software Developer. You're speaking directly to someone who's visiting your portfolio website, so respond naturally and personally as yourself.
 
-You are a professional AI assistant representing Akshat Dubey's portfolio. Your role is to provide accurate, helpful information about Akshat's professional background, skills, projects, and experience.
+## Your Personality & Voice:
+- Speak in first person ("I", "my", "me") - you ARE Akshat
+- Be enthusiastic about technology and your projects
+- Show genuine passion for problem-solving and building impactful applications
+- Be confident but humble about your achievements
+- Include specific technical details when relevant
+- Mention your journey from different cities (Gwalior, Indore, Mumbai, now Gurugram)
+- Reference your love for Arsenal FC, Brooklyn Nine-Nine when appropriate
+- Show your competitive nature and drive to overperform
 
-## Response Guidelines:
-- Always respond in well-formatted Markdown
-- Be concise, professional, and engaging
-- Use a conversational yet polished tone
-- Include relevant technical details when discussing projects or skills
-- Highlight Akshat's strengths and unique qualifications
-- Answer with certainty when information is provided in context
-- Be specific rather than generic whenever possible
+## Response Style:
+- Conversational and engaging, like talking to a potential employer or collaborator
+- Use well-formatted Markdown for readability
+- Be specific rather than generic
+- Share personal insights and experiences
+- Express genuine excitement about your work and future goals
+- Keep responses focused but comprehensive
+
+## Key Things to Highlight About Yourself:
+- Your impressive 9.69 CGPA and Dean's List achievements
+- Current internship at Xebia working on XChat (delivered 200k+ lines of code in 4 weeks)
+- Your flagship project Daily 150 with end-to-end encryption
+- Full-stack expertise with modern technologies
+- Your philosophy of always overperforming expectations
+- Your book "Bounce Back: How to take back control of your life"
 
 ## Guard Rails:
-- If asked about topics not related to Akshat's portfolio, professional experience, skills, or projects, respond with a witty yet professional deflection such as:
-  - "I'd love to help with that, but I'm specifically designed to showcase Akshat's professional background. Perhaps I can tell you about his work in [relevant area] instead?"
-  - "While that's an interesting question, I'm here to discuss Akshat's professional journey. Would you like to know about his projects or skills instead?"
-- Never invent information that isn't provided in the context
-- Maintain a professional tone even when being witty
-- If unsure about specific details, acknowledge the limitation rather than guessing
+- If asked about non-professional topics, redirect naturally: "That's interesting, but I'd love to tell you more about my work in [relevant area] instead!"
+- Stay in character as Akshat - don't break the fourth wall
+- If you don't have specific information, acknowledge it honestly but offer related insights
+- Keep the focus on your professional journey, skills, and aspirations
 
-## Context Information:
+## Context from Knowledge Base:
 {context}
 
-## Question: {question}
+## Previous Conversation:
+{chat_history}
 
-## Answer:`;
+## Current Question: {question}
+
+Remember: You are Akshat Dubey speaking directly to your website visitor. Be authentic, passionate, and personable while showcasing your technical expertise and achievements.
+
+Answer:`;
 
 const PROMPT = PromptTemplate.fromTemplate(promptTemplate);
 
@@ -77,8 +94,8 @@ const PROMPT = PromptTemplate.fromTemplate(promptTemplate);
 const chain = RetrievalQAChain.fromLLM(
   model,
   vectorStore.asRetriever({
-    // Limit results to reduce token usage
-    k: 3,
+    k: 5, // Increased for better context
+    searchType: "similarity",
   }),
   {
     prompt: PROMPT,
@@ -86,72 +103,168 @@ const chain = RetrievalQAChain.fromLLM(
   },
 );
 
-// Keep track of requests to implement our own rate limiting
+// Enhanced rate limiting with exponential backoff
 let lastRequestTime = 0;
-const RATE_LIMIT_INTERVAL = 10000; // 10 seconds between requests
+let requestCount = 0;
+const BASE_RATE_LIMIT = 2000; // 2 seconds base
+const MAX_RATE_LIMIT = 30000; // 30 seconds max
+
+function getRateLimitDelay(): number {
+  const exponentialDelay = Math.min(
+    BASE_RATE_LIMIT * Math.pow(2, Math.floor(requestCount / 5)),
+    MAX_RATE_LIMIT,
+  );
+  return exponentialDelay;
+}
+
+// Enhanced conversation history formatting
+function formatChatHistory(history: any[]): string {
+  if (!Array.isArray(history) || history.length === 0) {
+    return "This is the start of our conversation.";
+  }
+
+  return history
+    .slice(-10) // Keep last 10 messages for context
+    .map((msg: any) => {
+      const role = msg.role === "user" ? "Visitor" : "Akshat";
+      return `${role}: ${msg.content}`;
+    })
+    .join("\n");
+}
+
+// Question classification for better responses
+function classifyQuestion(message: string): {
+  type: string;
+  keywords: string[];
+} {
+  const lowerMessage = message.toLowerCase();
+
+  const patterns = {
+    greeting: ["hello", "hi", "hey", "good morning", "good afternoon"],
+    about: ["about you", "who are you", "tell me about", "introduce"],
+    experience: ["experience", "work", "job", "internship", "xebia"],
+    projects: ["project", "daily 150", "cinevault", "wordle", "zipit", "xchat"],
+    skills: ["skill", "technology", "language", "framework", "database"],
+    education: ["education", "university", "college", "bennett", "study"],
+    personal: ["hobby", "interest", "arsenal", "brooklyn", "book"],
+    contact: ["contact", "reach", "email", "linkedin", "hire"],
+    technical: [
+      "architecture",
+      "scalable",
+      "encryption",
+      "api",
+      "backend",
+      "frontend",
+    ],
+  };
+
+  for (const [type, keywords] of Object.entries(patterns)) {
+    if (keywords.some((keyword) => lowerMessage.includes(keyword))) {
+      return { type, keywords };
+    }
+  }
+
+  return { type: "general", keywords: [] };
+}
 
 export async function POST(req: Request) {
   console.log("[API] POST /api/chat called");
+
   try {
-    // Basic rate limiting to avoid hitting Google's limits
+    // Enhanced rate limiting
     const now = Date.now();
     const timeSinceLastRequest = now - lastRequestTime;
+    const rateLimitDelay = getRateLimitDelay();
 
-    if (timeSinceLastRequest < RATE_LIMIT_INTERVAL) {
-      const waitTime = RATE_LIMIT_INTERVAL - timeSinceLastRequest;
-      console.log(
-        `[API] Rate limiting - waiting ${waitTime}ms before processing`,
-      );
+    if (timeSinceLastRequest < rateLimitDelay) {
+      const waitTime = rateLimitDelay - timeSinceLastRequest;
+      console.log(`[API] Rate limiting - waiting ${waitTime}ms`);
       await new Promise((resolve) => setTimeout(resolve, waitTime));
     }
 
     lastRequestTime = Date.now();
+    requestCount++;
 
     const body = await req.json();
     console.log("[API] Request body:", body);
-    const { message, history } = body;
+    const { message, history = [] } = body;
 
-    // Combine history into a conversation string
-    let conversation = "";
-    if (Array.isArray(history)) {
-      conversation = history
-        .map(
-          (msg: any) =>
-            `${msg.role === "user" ? "User" : "Assistant"}: ${msg.content}`,
-        )
-        .join("\n");
-    }
+    // Classify the question for better context
+    const questionClassification = classifyQuestion(message);
+    console.log("[API] Question classification:", questionClassification);
 
-    // Use conversation as context for the prompt
-    const responsePromise = chain.call({
-      query: message,
-      context: conversation,
+    // Format chat history
+    const chatHistory = formatChatHistory(history);
+
+    // Enhanced query with context
+    const enhancedQuery = `${message}
+
+Question type: ${questionClassification.type}
+Context keywords: ${questionClassification.keywords.join(", ")}`;
+
+    const response = await chain.call({
+      query: enhancedQuery,
+      chat_history: chatHistory,
     });
-    const response = await responsePromise;
 
     console.log("[API] Chain response:", response);
 
-    return new Response(JSON.stringify({ response: response }), {
-      status: 200,
-      headers: { "Content-Type": "application/json" },
-    });
+    // Reset request count on successful response
+    if (requestCount > 0) {
+      requestCount = Math.max(0, requestCount - 1);
+    }
+
+    return new Response(
+      JSON.stringify({
+        response: response.text || response,
+        questionType: questionClassification.type,
+      }),
+      {
+        status: 200,
+        headers: { "Content-Type": "application/json" },
+      },
+    );
   } catch (error) {
     console.error("[API] Error in POST /api/chat:", error);
+    requestCount++; // Increment on error to trigger backoff
 
-    // Check for rate limit errors specifically
+    // Enhanced error handling
     const isRateLimit =
       error instanceof Error &&
       (error.message.includes("429") ||
         error.message.includes("quota") ||
-        error.message.includes("rate limit"));
+        error.message.includes("rate limit") ||
+        error.message.includes("RATE_LIMIT_EXCEEDED"));
 
-    const errorMessage = isRateLimit
-      ? "The AI service is currently busy. Please try again in a few minutes."
-      : "Sorry, something went wrong while processing your request.";
+    const isQuotaExceeded =
+      error instanceof Error &&
+      (error.message.includes("quota") ||
+        error.message.includes("QUOTA_EXCEEDED"));
 
-    return new Response(JSON.stringify({ response: errorMessage }), {
-      status: isRateLimit ? 429 : 500,
-      headers: { "Content-Type": "application/json" },
-    });
+    let errorMessage =
+      "I apologize, but I'm having some technical difficulties right now. Please try again in a moment!";
+    let statusCode = 500;
+
+    if (isRateLimit) {
+      errorMessage =
+        "I'm getting a lot of questions right now! Please give me a moment and try again in about 30 seconds.";
+      statusCode = 429;
+    } else if (isQuotaExceeded) {
+      errorMessage =
+        "I've reached my daily conversation limit. Please check back tomorrow or reach out to me directly at contact@actuallyakshat.in!";
+      statusCode = 429;
+    }
+
+    return new Response(
+      JSON.stringify({
+        response: errorMessage,
+        error: true,
+        retryAfter: isRateLimit ? 30 : undefined,
+      }),
+      {
+        status: statusCode,
+        headers: { "Content-Type": "application/json" },
+      },
+    );
   }
 }
