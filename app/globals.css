@@ -55,6 +55,11 @@
     --chart-4: 280 65% 60%;
     --chart-5: 340 75% 55%;
   }
+  .theme {
+    --animate-line-shadow: line-shadow 15s linear infinite;
+    --animate-aurora: aurora 8s ease-in-out infinite alternate;
+    --animate-ripple: ripple var(--duration,2s) ease calc(var(--i, 0)*.2s) infinite;
+  }
 }
 @layer base {
   * {
@@ -133,4 +138,15 @@ img {
 .no-scrollbar {
   -ms-overflow-style: none;
   scrollbar-width: none;
+}
+
+@theme inline {
+  @keyframes ripple {
+  0%, 100% {
+    transform: translate(-50%, -50%) scale(1);
+    }
+  50% {
+    transform: translate(-50%, -50%) scale(0.9);
+    }
+  }
 }

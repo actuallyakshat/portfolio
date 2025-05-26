@@ -1,53 +1,55 @@
+import { ArrowRightIcon } from "lucide-react";
 import Link from "next/link";
 
 const PROJECTS = [
   {
+    title: "Daily 150",
+    description:
+      "Daily 150 is a journaling app that encourages you to write 150 words every day. Every Monday, your entries from the past week are summarised using Gemini 1.5 Flash.",
+    url: "https://daily150.actuallyakshat.in",
+    gradient: "bg-gradient-to-tr from-neutral-700 to-red-700",
+  },
+  {
+    title: "Multiplayer Wordle",
+    description:
+      "A real-time multiplayer Wordle game built with Go on the backend and Vite + React on the frontend. Challenge your friends, see their guesses live, and race to crack the word first.",
+    url: "https://wordle.actuallyakshat.in",
+    gradient: "bg-gradient-to-tr from-emerald-900 to-cyan-900",
+  },
+  {
     title: "CineVault",
     description:
-      "CineVault: A sleek digital library for movie lovers with collaborative boards, watchlists and more",
+      "CineVault: A sleek digital library for movie lovers with collaborative boards, watchlists and more. Discover, track, and share your favorite films with ease.",
     url: "https://cinevault.actuallyakshat.in",
-    gradient: "bg-gradient-to-r from-zinc-700 via-slate-800 to-zinc-900",
+    gradient: "bg-gradient-to-r from-slate-700 to-zinc-900",
   },
   {
     title: "Zipit",
     description:
-      "Zipit allows you to seamlessly share files from any device with anyone, anywhere.",
+      "Zipit allows you to seamlessly share files from any device with anyone, anywhere. Experience fast and secure file transfers without any hassle.",
     url: "https://zipit.actuallyakshat.in",
-    gradient: "bg-gradient-to-tr from-sky-400 to-violet-900",
+    gradient: "bg-gradient-to-tr from-sky-700 to-violet-950",
   },
-  // {
-  //   title: "Bingo Bond",
-  //   description:
-  //     "Bingo Bond allows users to collaboratively populate bingo cards with planned activities",
-  //   url: "https://bingobond.actuallyakshat.in",
-  //   gradient: "bg-gradient-to-tr from-pink-600 via-rose-800 to-pink-400",
-  // },
-  // {
-  //   title: "Wishly",
-  //   description:
-  //     "Wishly helps you set reminder for those special days you can't afford to forget.",
-  //   url: "https://wishly.actuallyakshat.in",
-  //   gradient: "bg-gradient-to-b from-lime-600 via-green-800 to-teal-900",
-  // },
 ];
 
 export function FeaturedProjects() {
   return (
-    <div className="relative h-full flex-1 overflow-hidden rounded-2xl bg-[#1e1e1e] p-5 shadow-xl backdrop-blur-md lg:col-span-3">
+    <div className="relative flex-[2] overflow-hidden rounded-2xl bg-[#1e1e1e] p-5 shadow-xl backdrop-blur-md lg:col-span-3">
       <div className="projects-gradient absolute inset-0 right-0 top-0 z-[1]"></div>
-      <div className="flex w-full items-center justify-between">
+      <div className="mb-4 flex w-full items-center justify-between">
         <h2 className="relative z-[2] text-2xl font-bold text-white md:text-3xl">
           Featured Projects
         </h2>
         <Link
           href={"/projects"}
-          className="relative z-[1] text-sm font-medium text-white hover:underline"
+          className="group relative z-[2] flex items-center gap-1.5 text-sm font-medium text-white hover:underline"
         >
           View All
+          <ArrowRightIcon className="size-4 transition-transform group-hover:translate-x-1" />
         </Link>
       </div>
 
-      <div className="mt-4 grid grid-cols-1 gap-4 lg:grid-cols-2">
+      <div className="relative z-[2] grid auto-rows-fr grid-cols-1 gap-4 lg:grid-cols-2">
         {PROJECTS.map((project) => (
           <ProjectCard
             key={project.title}
@@ -77,17 +79,17 @@ function ProjectCard({
     <Link
       href={url}
       target="_blank"
-      className="group relative z-[1] col-span-1 overflow-hidden rounded-xl"
+      className="group relative flex flex-col overflow-hidden rounded-xl transition-transform hover:scale-[1.02]"
     >
       <div
-        className={`relative flex items-center justify-center overflow-hidden p-4 ${gradient}`}
+        className={`relative flex items-center justify-center p-6 ${gradient} min-h-[120px]`}
       >
-        <h2 className="z-[1] text-center text-2xl font-black text-white sm:text-3xl">
+        <h2 className="z-[1] text-center text-xl font-black text-white sm:text-2xl lg:text-xl xl:text-2xl">
           {title}
         </h2>
       </div>
-      <div className="bg-white p-4">
-        <p className="text-sm">{description}</p>
+      <div className="flex-1 bg-white p-4">
+        <p className="text-xs leading-relaxed text-gray-700">{description}</p>
       </div>
     </Link>
   );

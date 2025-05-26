@@ -42,43 +42,193 @@ Beyond my professional pursuits, I am an enthusiastic supporter of Arsenal FC an
 
 ## Skills and Expertise
 
-### What programming languages do you know?
+### Programming Languages
 
-I possess strong proficiency in several key programming languages, including C++, JavaScript, TypeScript, Go, Java, and SQL. I am also currently expanding my skill set by exploring Python.
+#### Proficient In
 
-### What frameworks or libraries are you proficient in?
+- **C++** – Performance-focused development and system-level programming
+- **JavaScript & TypeScript** – Full-stack web development and scalable frontend/backend applications
+- **Go (Golang)** – Building high-performance backend services and concurrent applications
+- **Java** – Enterprise-grade application development using Spring Boot
+- **SQL** – Writing complex queries and schema design across relational databases
 
-I have extensive hands-on experience with a range of modern frameworks and libraries essential for full-stack development. These include Next.js, React.js, Node.js, Express.js, Hono.js, Go Fiber, Java Spring Boot 6, React Native, and TailwindCSS for styling and UI development.
+#### Currently Learning
 
-### What databases have you worked with?
+- **Python** – Actively exploring for data engineering, scripting, and backend services
 
-My experience spans both SQL and NoSQL databases. I have successfully worked with MongoDB, PostgreSQL, MySQL, and SQLite. Additionally, I am familiar with cloud-based database solutions like Supabase and in-memory data structures like Redis. I am also proficient in using various Object-Relational Mappers (ORMs) and Object-Document Mappers (ODMs) such as Prisma, GORM, Hibernate, and SQLAlchemy to interact with these databases efficiently.
+---
 
-### What cloud platforms do you have experience with?
+### Frameworks and Libraries
 
-Based on my personal projects, I have practical experience with deploying applications on platforms like Railway. While I currently do not have extensive first-hand experience with major cloud providers like AWS or Azure, I have concrete plans to explore and gain experience with Azure services in the near future to broaden my cloud computing skills.
+#### Frontend
 
-### What development methodologies do you follow?
+- **React.js** – Component-driven architecture and hook-based state management
+- **Next.js** – Full-stack React framework with SSR, SSG, and API routes
+- **React Native** – Cross-platform mobile app development
+- **Tailwind CSS** – Utility-first CSS framework for rapid UI development
 
-My experience in personal project development has instilled in me a strong familiarity with iterative development approaches, allowing for flexibility and continuous improvement. Through my current internship at Xebia, I am actively gaining exposure to and participating in enterprise-level development methodologies such as Agile and Scrum, learning best practices for collaborative and efficient software delivery in a team environment.
+#### Backend
 
-### Are you familiar with DevOps practices?
+- **Node.js** – JavaScript runtime for scalable server-side development
+- **Express.js** – REST API development with middleware support
+- **Hono.js** – High-performance web framework for edge/serverless platforms
+- **Go Fiber** – Fast Go web framework based on Express-style routing
+- **Java Spring Boot 6** – Building production-ready microservices and REST APIs
 
-Yes, I am familiar with fundamental DevOps practices and tools. I have hands-on experience with Git for version control, GitHub for collaborative development and code hosting, and Docker for containerization, which are essential components of modern DevOps workflows. My experience deploying applications on platforms like Railway has also provided me with practical insights into deployment pipelines and related workflows. I am further expanding my DevOps knowledge by exploring Kubernetes for advanced container orchestration and management.
+---
 
-### What are your strongest technical skills?
+### Databases
 
-My strongest technical skills encompass a broad range of full-stack capabilities:
+#### SQL Databases
 
-1.  **Full-stack web development:** Building complete web applications using modern stacks like React/Next.js for the frontend and Node.js/Go for the backend.
-2.  **Database design and implementation:** Designing efficient database schemas and implementing solutions across both SQL and NoSQL systems.
-3.  **Building secure systems:** Implementing robust security measures, including end-to-end encryption and authentication mechanisms, to protect data and users.
-4.  **Creating scalable, event-driven architectures:** Designing and building systems that can handle increasing loads and utilize asynchronous processing patterns like event queues.
-5.  **Implementing real-time features:** Developing applications with real-time capabilities using technologies like WebSockets for interactive user experiences.
+- **PostgreSQL** – Advanced relational modeling and indexing
+- **MySQL** – Standard RDBMS for web applications
+- **SQLite** – Lightweight, embedded database for local development
 
-### Do you have experience with specific technologies?
+#### NoSQL & Cloud Databases
 
-Yes, I have experience with a wide array of specific technologies, as detailed throughout the "Skills and Expertise" and "Projects and Experience" sections of this knowledge base. This includes various programming languages, frameworks, databases, and tools. For any specific technology not explicitly mentioned, I would be happy to discuss my familiarity or willingness to learn it.
+- **MongoDB** – Flexible, schema-less document storage
+- **Supabase** – PostgreSQL-based BaaS with real-time support
+- **Redis** – In-memory key-value store for caching and pub/sub use cases
+
+#### ORMs & ODMs
+
+- **Prisma (TypeScript)** – Modern type-safe ORM for PostgreSQL, MySQL, etc.
+- **GORM (Go)** – Idiomatic Go ORM for relational databases
+- **Hibernate (Java)** – Java-based ORM for enterprise-grade persistence
+- **SQLAlchemy (Python)** – SQL toolkit and ORM for Python
+
+---
+
+### Cloud Platforms
+
+#### Practical Experience
+
+- **Railway** – Deployment of full-stack applications with CI/CD and environment management
+
+#### Cloud Exploration Roadmap
+
+- **Azure (Planned)** – Upcoming deep dive into Microsoft Azure services
+- **AWS (Planned)** – Future learning target to strengthen cloud proficiency
+
+---
+
+### Development Methodologies
+
+#### Personal Project Workflow
+
+- **Iterative Development** – Rapid prototyping with continuous improvements
+- **Agile Principles** – Flexibility, user feedback loops, and incremental delivery
+- **TDD (Test-Driven Development)** – Writing tests before implementation
+
+#### Industry Exposure (Xebia Internship)
+
+- **Agile & Scrum** – Working in cross-functional teams with sprints and retrospectives
+- **Team Collaboration** – Pair programming, code reviews, and version control best practices
+- **Enterprise Best Practices** – Scalable architecture, QA, and sprint planning
+
+---
+
+### DevOps Practices
+
+#### Tools and Workflows
+
+- **Git & GitHub** – Branching strategies, pull requests, collaborative workflows
+- **Docker** – Containerization for consistent development environments
+- **CI/CD Pipelines** – Automated testing and deployment
+- **Kubernetes (Exploring)** – Orchestration for containerized workloads
+- **Advanced Strategies (Exploring)** – Blue-green deployments, rolling updates
+
+---
+
+### Core Technical Strengths
+
+#### 1. Full-Stack Web Development
+
+- Modern frontend (React/Next.js + TypeScript)
+- High-performance backend (Node.js, Go)
+- Seamless API integration and state management
+
+#### 2. Database Design & Implementation
+
+- Efficient schema design and query optimization
+- SQL/NoSQL modeling and data migrations
+
+#### 3. Secure Application Development
+
+- JWT authentication and role-based authorization
+- Input validation, encryption, and XSS/SQLi prevention
+
+#### 4. Scalable Architecture Design
+
+- Event-driven systems with message queues
+- Microservices patterns and load balancing
+- Caching strategies and code-level optimizations
+
+#### 5. Real-Time Application Development
+
+- WebSocket and Socket.io integration
+- Live features like chat and notifications
+- Optimized real-time data synchronization
+
+---
+
+### Tools and Environment
+
+#### IDEs & Editors
+
+- **VS Code** – Main editor with custom extensions
+- **IntelliJ IDEA** – Enterprise Java development
+
+#### Design & Collaboration
+
+- **Figma** – UI/UX design and prototyping
+- **Git Workflows** – Feature branching and PR reviews
+
+#### Package Management & Build Tools
+
+- **npm / yarn** – JavaScript package management
+- **Webpack / Vite** – Module bundling and optimization
+
+#### Testing & Code Quality
+
+- **Unit & Integration Testing** – Frontend and backend tests
+- **ESLint / Prettier** – Code linting and formatting
+
+---
+
+### Learning & Growth
+
+#### Immediate Focus
+
+- **Python Development (still learning) ** – For scripting and backend
+- **Kubernetes** – Production-grade orchestration
+- **Azure Cloud** – Exploring Azure-specific services
+- **Advanced React** – Custom hooks, HOCs, render props
+
+#### Future Objectives
+
+- **System Design** – Designing scalable distributed systems
+- **Performance Engineering** – Advanced profiling and optimization
+- **ML Integration** – AI/ML integration in apps
+- **Security Auditing** – Pen testing and vulnerability assessments
+
+---
+
+### Technology Application Examples
+
+#### Project Implementations
+
+- **Daily 150** – React + Node.js + MongoDB with JWT auth
+- **CineVault** – Next.js frontend + Express.js API + external APIs
+- **XChat** – Real-time chat with Socket.io + WebSocket + message persistence
+
+#### Technical Achievements
+
+- Built scalable APIs and full-stack apps
+- Implemented secure, encrypted systems
+- Delivered responsive UIs with cross-device support
+- Developed live messaging platforms with real-time sync
 
 ## Projects and Experience
 

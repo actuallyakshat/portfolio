@@ -1,18 +1,18 @@
+import { Ripple } from "@/components/magicui/ripple";
 import { ArrowRightIcon } from "lucide-react";
 import Link from "next/link";
-import React from "react";
 
 export const ExperiencesCard = () => {
   return (
     <Link
       href={"/experience"}
-      className="group relative col-span-6 flex h-full w-full flex-col justify-center overflow-hidden rounded-xl border border-gray-200 bg-gradient-to-br from-purple-500 to-pink-600 p-6 text-center text-white shadow-sm lg:col-span-3"
+      className="group relative aspect-square h-full basis-1/2 overflow-hidden rounded-2xl bg-white"
     >
-      <h2 className="text-2xl font-bold">My Experience</h2>
-      {/* Add any other content or styling here */}
-      <div className="absolute bottom-4 right-4 text-3xl text-white transition-transform duration-300 group-hover:-rotate-45">
-        <ArrowRightIcon className="size-5" />
-      </div>
+      <ArrowRightIcon className="absolute right-4 top-4 text-4xl text-zinc-900 transition-transform duration-300 group-hover:-rotate-45" />
+      <Ripple className="scale-105" />
+      <h2 className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-gradient-to-b from-zinc-900 to-slate-700 bg-clip-text text-center text-[2.75rem] font-extrabold text-transparent">
+        Experience
+      </h2>
     </Link>
   );
 };

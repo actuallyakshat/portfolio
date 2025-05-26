@@ -141,7 +141,8 @@ const DockIcon = ({
             href === "/projects" ||
             href === "/" ||
             href === "/contact" ||
-            href === "/chat"
+            href === "/chat" ||
+            href === "/experience"
               ? "_self"
               : "_blank"
           }
