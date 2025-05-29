@@ -46,7 +46,7 @@ const BLUR_FADE_DELAY = 0.04;
 export default function Experience() {
   return (
     <main className="graph">
-      <div className="graph mx-auto flex min-h-[100dvh] max-w-2xl flex-col pb-32 pt-16">
+      <div className="graph mx-auto flex min-h-[100dvh] max-w-2xl flex-col px-5 pb-32 pt-16">
         <section id="hero">
           <div className="mx-auto w-full max-w-2xl space-y-8">
             <div className="flex justify-between gap-2">

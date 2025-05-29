@@ -73,11 +73,11 @@ export function HomeDock() {
   if (pathname === "/chat") return null;
 
   return (
-    <div className="fixed bottom-10 left-1/2 z-[101] -translate-x-1/2">
+    <div className="fixed bottom-5 left-1/2 z-[101] -translate-x-1/2 md:bottom-10 md:w-auto">
       <Dock
         magnification={60}
         distance={180}
-        className="scale-100 border-black/20 bg-white"
+        className="scale-90 border-black/20 bg-white md:scale-100"
       >
         {dockItems.map((item: DockItem) => (
           <DockIcon
