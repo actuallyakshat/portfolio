@@ -1,10 +1,9 @@
 import { BlurFade } from "@/components/magicui/blur-fade";
 
 import BlurFadeText from "@/components/magicui/blur-fade-text";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { ResumeCard } from "./_components/resume-card";
 
-export const DATA = {
+const DATA = {
   name: "Dillion Verma",
   initials: "DV",
   url: "https://dillion.io",
