@@ -6,7 +6,7 @@ export const ExperiencesCard = () => {
   return (
     <Link
       href={"/experience"}
-      className="group relative aspect-square h-full basis-1/2 overflow-hidden rounded-2xl bg-white"
+      className="group relative col-span-3 aspect-square h-full basis-1/2 overflow-hidden rounded-2xl bg-white"
     >
       <ArrowRightIcon className="absolute right-4 top-4 text-4xl text-zinc-900 transition-transform duration-300 group-hover:-rotate-45" />
       <Ripple className="scale-105" />

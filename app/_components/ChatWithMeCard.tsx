@@ -8,7 +8,7 @@ export function ChatWithMeCard() {
   return (
     <Link
       href="/chat"
-      className="group relative flex min-h-[180px] flex-col items-center justify-center rounded-2xl border border-white/30 bg-white/80 p-6 shadow-xl backdrop-blur-md transition-all duration-700 hover:bg-zinc-100 hover:shadow-2xl"
+      className="group relative col-span-6 flex min-h-[180px] flex-col items-center justify-center rounded-2xl border border-white/30 bg-white/80 p-6 shadow-xl backdrop-blur-md transition-all duration-700 hover:bg-zinc-100 hover:shadow-2xl sm:col-span-2 lg:col-span-1"
       style={{
         boxShadow:
           "0 4px 24px 0 rgba(0,0,0,0.08), 0 1.5px 4px 0 rgba(0,0,0,0.03)",

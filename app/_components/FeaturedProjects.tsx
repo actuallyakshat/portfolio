@@ -34,7 +34,7 @@ const PROJECTS = [
 
 export function FeaturedProjects() {
   return (
-    <div className="relative flex-[2] overflow-hidden rounded-2xl bg-[#1e1e1e] p-5 shadow-xl backdrop-blur-md lg:col-span-3">
+    <div className="relative overflow-hidden rounded-2xl bg-[#1e1e1e] p-5 shadow-xl backdrop-blur-md lg:col-span-3 lg:flex-[2]">
       <div className="projects-gradient absolute inset-0 right-0 top-0 z-[1]"></div>
       <div className="mb-4 flex w-full items-center justify-between">
         <h2 className="relative z-[2] text-2xl font-bold text-white md:text-3xl">

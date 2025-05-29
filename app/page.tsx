@@ -34,31 +34,33 @@ export default function Home() {
         <div className="col-span-6 flex flex-col gap-6 lg:col-span-2">
           <DateAndTimeCard />
           <FreelanceProjects />
-          <div className="group relative h-full flex-1 rounded-2xl">
+          <div className="group relative min-h-[400px] flex-1 overflow-hidden rounded-2xl md:h-full">
             <div className="absolute inset-0 z-10 flex items-center justify-center rounded-2xl bg-black/0 opacity-0 transition-all duration-500 group-hover:bg-black/60 group-hover:opacity-100">
               <p className="italic text-white">
                 i recently bought a m4 mac mini!!
               </p>
             </div>
             <Image
-              src={"/home-images/mac-mini.jpeg"}
+              src="/home-images/mac-mini.jpeg"
               alt="mac mini"
-              width={1080}
-              height={1080}
-              className="aspect-square rounded-2xl object-cover object-center"
+              fill
+              className="rounded-2xl object-cover object-center"
+              sizes="100vw"
+              priority
             />
           </div>
         </div>
         <div className="col-span-6 flex h-full flex-col gap-6 lg:col-span-1">
           <BounceBackCard />
           <BestPerformerCard />
-          <div className="group relative h-full flex-1 rounded-2xl">
+          <div className="group relative h-full min-h-[400px] flex-1 overflow-hidden rounded-2xl">
             <Image
-              src={"/home-images/building.jpeg"}
-              alt="mac mini"
-              width={1080}
-              height={1080}
+              src="/home-images/building.jpeg"
+              alt="my office"
+              fill
               className="rounded-2xl object-cover object-center"
+              sizes="100vw"
+              priority
             />
             <div className="absolute inset-0 flex items-center justify-center rounded-2xl bg-black/50 px-3 opacity-0 transition-opacity duration-500 group-hover:opacity-100">
               <p className="text-center italic text-white">
@@ -67,8 +69,8 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <div className="col-span-3 flex h-full flex-1 flex-col gap-5">
-          <div className="flex flex-[1] gap-5">
+        <div className="col-span-6 flex h-full flex-1 flex-col gap-5 lg:col-span-3">
+          <div className="flex flex-[1] flex-col gap-5 md:flex-row">
             <ExperiencesCard />
             <AgeCard />
           </div>
