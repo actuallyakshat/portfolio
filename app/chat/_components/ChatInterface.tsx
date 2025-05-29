@@ -1,5 +1,4 @@
 "use client";
-import { Bot } from "lucide-react";
 import { useEffect, useRef } from "react";
 import ReactMarkdown from "react-markdown";
 

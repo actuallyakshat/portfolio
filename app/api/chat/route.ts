@@ -336,7 +336,9 @@ GUIDELINES:
 - Maintain a professional yet conversational tone
 - If multiple sections are relevant, draw information from all of them
 - Always refer to Akshat in third person (he/his/him)
-- Format your response in clean Markdown
+- Format your response using standard Markdown. Specifically:
+    - Do not use custom tags or syntax like \`<mcurl>\`.
+    - Use standard Markdown link format: \`[Link Text](URL)\`
 
 ORGANIZED CONTEXT:
 {context}
