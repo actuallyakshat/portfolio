@@ -44,19 +44,17 @@ export const ResumeCard = ({
       className="block cursor-pointer"
       onClick={handleClick}
     >
-      <Card className="flex pb-7">
+      <Card
+        className={`flex border border-zinc-300 bg-gradient-to-t ${isExpanded ? "from-zinc-200" : "from-slate-50"} px-4 py-7`}
+      >
         <div className="flex-none">
           <Avatar className="bg-muted-background m-auto size-12 border dark:bg-foreground">
-            <AvatarImage
-              src={logoUrl}
-              alt={altText}
-              className="object-contain"
-            />
+            <AvatarImage src={logoUrl} alt={altText} className="object-cover" />
             <AvatarFallback>{altText[0]}</AvatarFallback>
           </Avatar>
         </div>
         <div className="group ml-4 flex-grow flex-col items-center">
-          <CardHeader>
+          <CardHeader className="mt-0 p-0">
             <div className="flex items-center justify-between gap-x-2 text-base">
               <h3 className="inline-flex items-center justify-center text-xs font-semibold leading-none sm:text-sm">
                 {title}
