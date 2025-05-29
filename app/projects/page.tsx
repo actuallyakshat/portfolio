@@ -5,6 +5,41 @@ import Link from "next/link";
 
 const PROJECTS = [
   {
+    name: "Daily 150",
+    duration: "Feb 2025",
+    description:
+      "Daily 150 is a journaling app that encourages you to write 150 words every day. Every Monday, your entries from the past week are summarised using Gemini 2.0 Flash. The app is built with scalability and privacy in mind — featuring end-to-end encryption, a decoupled summarisation service, Redis-based batch processing, and a Chrome extension that blocks social media until you journal for the day.",
+    techStack: [
+      "Go Lang",
+      "React",
+      "Gen AI",
+      "Redis",
+      "Chrome Extension",
+      "Redis",
+      "End-to-end Encryption",
+      "PostgreSQL",
+      "GORM",
+      "TypeScript",
+      "Railway",
+      "Event Driven Architecture",
+      "Cron Jobs",
+    ],
+    links: [
+      {
+        name: "Website",
+        href: "https://daily150.actuallyakshat.in",
+        icon: <Globe className="size-3" />,
+      },
+      {
+        name: "Source",
+        href: "https://github.com/actuallyakshat/daily-150",
+        icon: <Github className="size-3" />,
+      },
+    ],
+    image: "daily150.png",
+  },
+
+  {
     name: "Multiplayer Wordle",
     duration: "December 2024 - January 2025",
     description:
@@ -207,7 +242,6 @@ const PROJECTS = [
     ],
     image: "nr.png",
   },
-
   {
     name: "Realtime Todos",
     duration: "January 2025",

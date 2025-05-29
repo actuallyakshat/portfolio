@@ -66,6 +66,10 @@ const config: Config = {
         "marquee-vertical": "marquee-vertical var(--duration) linear infinite",
         "spin-around": "spin-around calc(var(--speed) * 2) infinite linear",
         slide: "slide var(--speed) ease-in-out infinite alternate",
+        // Add your custom animations here
+        "line-shadow": "line-shadow 2s linear infinite",
+        aurora: "aurora 6s ease-in-out infinite",
+        ripple: "ripple var(--duration,2s) ease calc(var(--i,0)*0.2s) infinite",
       },
       keyframes: {
         marquee: {
@@ -95,9 +99,49 @@ const config: Config = {
             transform: "translate(calc(100cqw - 100%), 0)",
           },
         },
+        // Add your custom keyframes here
+        "line-shadow": {
+          "0%": {
+            backgroundPosition: "0 0",
+          },
+          "100%": {
+            backgroundPosition: "100% -100%",
+          },
+        },
+        aurora: {
+          "0%": {
+            backgroundPosition: "0% 50%",
+            transform: "rotate(-5deg) scale(0.9)",
+          },
+          "25%": {
+            backgroundPosition: "50% 100%",
+            transform: "rotate(5deg) scale(1.1)",
+          },
+          "50%": {
+            backgroundPosition: "100% 50%",
+            transform: "rotate(-3deg) scale(0.95)",
+          },
+          "75%": {
+            backgroundPosition: "50% 0%",
+            transform: "rotate(3deg) scale(1.05)",
+          },
+          "100%": {
+            backgroundPosition: "0% 50%",
+            transform: "rotate(-5deg) scale(0.9)",
+          },
+        },
+        ripple: {
+          "0%,100%": {
+            transform: "translate(-50%, -50%) scale(1)",
+          },
+          "50%": {
+            transform: "translate(-50%, -50%) scale(0.9)",
+          },
+        },
       },
     },
   },
   plugins: [require("tailwindcss-animate")],
 };
+
 export default config;

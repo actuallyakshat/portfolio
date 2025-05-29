@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Caveat, Inter } from "next/font/google";
 import { Toaster } from "sonner";
 import { HomeDock } from "./_components/HomeDock";
 import "./globals.css";
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
         url: "/portfolio.png",
         width: 1200,
         height: 630,
-        alt: "Nota Rapida",
+        alt: "actuallyakshat's portfolio",
       },
     ],
   },
